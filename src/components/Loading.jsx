@@ -18,8 +18,8 @@ function AnimatedLetters({ text, className, start = 0, onLastCharAnimationEnd })
 }
 
 const LOBI_HOLD_MS       = 1200
-const LETTER_STAGGER_MS  = 46
-const LETTER_DURATION_MS = 360
+const LETTER_STAGGER_MS  = 52
+const LETTER_DURATION_MS = 380
 const LETTER_DELAY_BASE  = 30
 const LAST_LETTER_I      = 11   // bi-right "liaria" → start=6, último char índice 5 → --i = 11
 // Tempo exato em que a última letra termina de animar, a partir do mount

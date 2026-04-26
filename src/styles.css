@@ -47,13 +47,14 @@
 
 .letters .char {
 	display: inline-block;
-	width: 0;
+	max-width: 0;
+	overflow: hidden;
+	white-space: nowrap;
 	opacity: 0;
-	will-change: transform, opacity;
-	animation-duration: 360ms;
+	animation-duration: 380ms;
 	animation-fill-mode: forwards;
 	animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-	animation-delay: calc(var(--i) * 46ms + 30ms);
+	animation-delay: calc(var(--i) * 52ms + 30ms);
 }
 
 .logo-word.run .lo-tail .char {
@@ -70,40 +71,34 @@
 
 @keyframes emerge-from-lo {
 	from {
-		width: 0;
+		max-width: 0;
 		opacity: 0;
-		transform: translateX(-16px) scale(0.88);
 	}
 	to {
-		width: 0.6em;
+		max-width: 1.6em;
 		opacity: 1;
-		transform: translateX(0) scale(1);
 	}
 }
 
 @keyframes emerge-left-from-bi {
 	from {
-		width: 0;
+		max-width: 0;
 		opacity: 0;
-		transform: translateX(14px) scale(0.88);
 	}
 	to {
-		width: 0.6em;
+		max-width: 1.6em;
 		opacity: 1;
-		transform: translateX(0) scale(1);
 	}
 }
 
 @keyframes emerge-right-from-bi {
 	from {
-		width: 0;
+		max-width: 0;
 		opacity: 0;
-		transform: translateX(-14px) scale(0.88);
 	}
 	to {
-		width: 0.6em;
+		max-width: 1.6em;
 		opacity: 1;
-		transform: translateX(0) scale(1);
 	}
 }
 
