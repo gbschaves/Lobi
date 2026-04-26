@@ -48,7 +48,7 @@ export default function Loading({ onComplete }) {
       clearTimeout(t1)
       clearTimeout(t2)
     }
-  }, [onComplete])
+  }, []) // array vazio: timers disparam só no mount, nunca reiniciam
 
   return (
     <div className="loader-wrap">

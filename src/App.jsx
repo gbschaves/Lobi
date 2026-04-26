@@ -22,7 +22,8 @@ export default function App() {
     })
   }, [])
 
-  if (!introDone || !dataReady) return <Loading onComplete={() => setIntroDone(true)} />
+  if (!introDone) return <Loading onComplete={() => setIntroDone(true)} />
+  if (!dataReady) return null
 
   return (
     <div className="min-h-screen bg-[#12131a] text-[#e3e1ec] flex">
