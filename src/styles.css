@@ -1,7 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
 :root { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
 
-.loader-wrap { display:flex; align-items:center; justify-content:center; height:100vh; background:#0f1113; color:#e3e1ec; }
+.loader-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background: #0f1113;
+	color: #e3e1ec;
+	opacity: 1;
+	transition: opacity 500ms ease, filter 500ms ease;
+}
+
+.loader-wrap.loader-exit {
+	opacity: 0;
+	filter: blur(6px);
+}
 
 .logo-stage {
 	position: relative;
@@ -20,6 +34,7 @@
 	font-size: 52px;
 	line-height: 1;
 	font-weight: 500;
+	gap: 0;
 }
 
 .accent {
@@ -29,15 +44,11 @@
 	text-shadow: 0 0 22px rgba(0, 245, 255, 0.35);
 }
 
+/* Lo e Bi não têm transform — o próprio nascimento das letras os empurra */
 .logo-word .lo-anchor,
 .logo-word .bi-anchor {
 	display: inline-block;
-	transform: translateX(0);
-	transition: transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-.logo-word.run .lo-anchor { transform: translateX(-24px); }
-.logo-word.run .bi-anchor { transform: translateX(24px); }
 
 .letters {
 	display: inline-flex;
@@ -48,43 +59,25 @@
 .letters .char {
 	display: inline-block;
 	max-width: 0;
+	opacity: 0;
 	overflow: hidden;
 	white-space: nowrap;
-	opacity: 0;
-	animation-duration: 380ms;
+	vertical-align: bottom;
+	animation-duration: 450ms;
 	animation-fill-mode: forwards;
-	animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-	animation-delay: calc(var(--i) * 52ms + 30ms);
+	animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+	animation-delay: calc(var(--i) * 50ms);
 }
 
-.logo-word.run .lo-tail .char {
-	animation-name: emerge-from-lo;
+/* Uma única animação: a letra expande e empurra o layout naturalmente */
+.logo-word.run .char {
+	animation-name: letter-born;
 }
 
-.logo-word.run .bi-left .char {
-	animation-name: emerge-left-from-bi;
-}
-
-.logo-word.run .bi-right .char {
-	animation-name: emerge-right-from-bi;
-}
-
-@keyframes emerge-from-lo {
-	/* Lo desliza para esquerda; letras só expandem, sem translateX extra para não colidir */
-	from { max-width: 0; opacity: 0; }
-	to   { max-width: 1.6em; opacity: 1; }
-}
-
-@keyframes emerge-left-from-bi {
-	/* letras de "imo" vêm da direita (de Bi) para a esquerda */
-	from { max-width: 0; opacity: 0; transform: translateX(8px); }
-	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
-}
-
-@keyframes emerge-right-from-bi {
-	/* letras de "liaria" vêm da esquerda (de Bi) para a direita */
-	from { max-width: 0; opacity: 0; transform: translateX(-8px); }
-	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
+@keyframes letter-born {
+	0%   { max-width: 0;    opacity: 0; }
+	40%  { opacity: 1; }
+	100% { max-width: 1.5em; opacity: 1; }
 }
 
 .table { width:100%; border-collapse:collapse; }

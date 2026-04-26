@@ -1,39 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-// Renderiza letras uma a uma com stagger via CSS custom property --i
-// reverseStagger: a última letra (visualmente mais próxima de Bi) aparece primeiro
-function AnimatedLetters({ text, className, start = 0, reverseStagger = false, onDone }) {
+function AnimatedLetters({ text, className, start = 0, onDone }) {
   const len = text.length
   return (
     <span className={className}>
-      {text.split('').map((ch, i) => {
-        const staggerIndex = reverseStagger ? start + (len - 1 - i) : start + i
-        const isLast = i === len - 1
-        return (
-          <span
-            key={i}
-            className="char"
-            style={{ '--i': staggerIndex }}
-            onAnimationEnd={isLast ? onDone : undefined}
-          >
-            {ch === ' ' ? '\u00A0' : ch}
-          </span>
-        )
-      })}
+      {text.split('').map((ch, i) => (
+        <span
+          key={i}
+          className="char"
+          style={{ '--i': start + i }}
+          onAnimationEnd={i === len - 1 ? onDone : undefined}
+        >
+          {ch === ' ' ? '\u00A0' : ch}
+        </span>
+      ))}
     </span>
   )
 }
 
-const LOBI_HOLD_MS = 1000   // tempo que só "LoBi" fica visível antes das letras nascerem
+const LOBI_HOLD_MS = 1200
 
 export default function Loading({ onComplete }) {
-  const [phase, setPhase] = useState(0)
-  const calledRef = useRef(false)
+  const [phase, setPhase]       = useState(0)
+  const [exiting, setExiting]   = useState(false)
+  const calledRef               = useRef(false)
 
-  function finish() {
+  function startExit() {
     if (calledRef.current) return
     calledRef.current = true
-    onComplete?.()
+    // pausa 800ms com texto completo visível → fade-out de 500ms → desmonta
+    setTimeout(() => {
+      setExiting(true)
+      setTimeout(() => onComplete?.(), 500)
+    }, 800)
   }
 
   useEffect(() => {
@@ -42,19 +41,15 @@ export default function Loading({ onComplete }) {
   }, [])
 
   return (
-    <div className="loader-wrap">
+    <div className={`loader-wrap${exiting ? ' loader-exit' : ''}`}>
       <div className="logo-stage">
+        {/* cação (0-5 com espaço), imo (6-8), liaria (9-14) */}
         <div className={`logo-word ${phase === 1 ? 'run' : ''}`}>
-          {/* Lo → desliza para esquerda; cação nasce saindo de Lo */}
           <span className="accent lo-anchor">Lo</span>
-          <AnimatedLetters text="cação" className="letters lo-tail" start={0} />
-
-          {/* imo fica à esquerda de Bi; nasce de trás para frente (o primeiro, i por último) */}
-          <AnimatedLetters text="imo" className="letters bi-left" start={5} reverseStagger />
-
-          {/* Bi → desliza para direita; liaria nasce saindo de Bi */}
+          <AnimatedLetters text="cação " className="letters lo-tail" start={0} />
+          <AnimatedLetters text="imo"    className="letters bi-left"  start={6} />
           <span className="accent bi-anchor">Bi</span>
-          <AnimatedLetters text="liaria" className="letters bi-right" start={8} onDone={finish} />
+          <AnimatedLetters text="liaria" className="letters bi-right" start={9} onDone={startExit} />
         </div>
       </div>
     </div>
