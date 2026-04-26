@@ -1,18 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-function AnimatedLetters({ text, className, start = 0, onLastCharAnimationEnd }) {
+function AnimatedLetters({ text, className, start = 0, reverseStagger = false, onLastCharAnimationEnd }) {
+  const len = text.length
   return (
     <span className={className}>
-      {text.split('').map((ch, i) => (
-        <span
-          key={`${className}-${i}-${ch}`}
-          className="char"
-          style={{ '--i': i + start }}
-          onAnimationEnd={i === text.length - 1 ? onLastCharAnimationEnd : undefined}
-        >
-          {ch === ' ' ? '\u00A0' : ch}
-        </span>
-      ))}
+      {text.split('').map((ch, i) => {
+        const idx = reverseStagger ? start + (len - 1 - i) : start + i
+        return (
+          <span
+            key={`${className}-${i}-${ch}`}
+            className="char"
+            style={{ '--i': idx }}
+            onAnimationEnd={i === len - 1 ? onLastCharAnimationEnd : undefined}
+          >
+            {ch === ' ' ? '\u00A0' : ch}
+          </span>
+        )
+      })}
     </span>
   )
 }
@@ -52,7 +56,7 @@ export default function Loading({ onComplete }) {
         <div className={`logo-word ${phase >= 1 ? 'run' : ''}`}>
           <span className="accent lo-anchor">Lo</span>
           <AnimatedLetters text="cação " className="letters lo-tail" start={0} />
-          <AnimatedLetters text="imo" className="letters bi-left" start={6} />
+          <AnimatedLetters text="imo" className="letters bi-left" start={6} reverseStagger />
           <span className="accent bi-anchor">Bi</span>
           <AnimatedLetters text="liaria" className="letters bi-right" start={9} onLastCharAnimationEnd={completeIntro} />
         </div>

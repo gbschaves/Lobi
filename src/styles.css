@@ -70,36 +70,18 @@
 }
 
 @keyframes emerge-from-lo {
-	from {
-		max-width: 0;
-		opacity: 0;
-	}
-	to {
-		max-width: 1.6em;
-		opacity: 1;
-	}
+	from { max-width: 0; opacity: 0; transform: translateX(-10px); }
+	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
 }
 
 @keyframes emerge-left-from-bi {
-	from {
-		max-width: 0;
-		opacity: 0;
-	}
-	to {
-		max-width: 1.6em;
-		opacity: 1;
-	}
+	from { max-width: 0; opacity: 0; transform: translateX(10px); }
+	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
 }
 
 @keyframes emerge-right-from-bi {
-	from {
-		max-width: 0;
-		opacity: 0;
-	}
-	to {
-		max-width: 1.6em;
-		opacity: 1;
-	}
+	from { max-width: 0; opacity: 0; transform: translateX(-10px); }
+	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
 }
 
 .table { width:100%; border-collapse:collapse; }
