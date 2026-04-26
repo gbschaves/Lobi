@@ -21,7 +21,7 @@ const LOBI_HOLD_MS       = 1200
 const LETTER_STAGGER_MS  = 52
 const LETTER_DURATION_MS = 380
 const LETTER_DELAY_BASE  = 30
-const LAST_LETTER_I      = 11   // bi-right "liaria" → start=6, último char índice 5 → --i = 11
+const LAST_LETTER_I      = 14   // "cação "(0-5) + "imo"(6-8) + "liaria"(9-14) → último --i = 14
 // Tempo exato em que a última letra termina de animar, a partir do mount
 const LETTERS_DONE_MS    = LOBI_HOLD_MS + (LAST_LETTER_I * LETTER_STAGGER_MS + LETTER_DELAY_BASE) + LETTER_DURATION_MS
 const FALLBACK_COMPLETE_MS = LETTERS_DONE_MS + 80  // dispara 80ms após o fim real → sem pausa morta
@@ -52,9 +52,9 @@ export default function Loading({ onComplete }) {
         <div className={`logo-word ${phase >= 1 ? 'run' : ''}`}>
           <span className="accent lo-anchor">Lo</span>
           <AnimatedLetters text="cação " className="letters lo-tail" start={0} />
-          <AnimatedLetters text="imo" className="letters bi-left" start={3} />
+          <AnimatedLetters text="imo" className="letters bi-left" start={6} />
           <span className="accent bi-anchor">Bi</span>
-          <AnimatedLetters text="liaria" className="letters bi-right" start={6} onLastCharAnimationEnd={completeIntro} />
+          <AnimatedLetters text="liaria" className="letters bi-right" start={9} onLastCharAnimationEnd={completeIntro} />
         </div>
       </div>
     </div>
