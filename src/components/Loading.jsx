@@ -12,16 +12,21 @@ function AnimatedLetters({ text, className, start = 0 }) {
   )
 }
 
-export default function Loading() {
+const LOBI_HOLD_MS = 1200
+const ANIMATION_AFTER_RUN_MS = 1000
+
+export default function Loading({ onComplete }) {
   const [phase, setPhase] = useState(0)
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 700)
+    const t1 = setTimeout(() => setPhase(1), LOBI_HOLD_MS)
+    const t2 = setTimeout(() => onComplete?.(), LOBI_HOLD_MS + ANIMATION_AFTER_RUN_MS)
 
     return () => {
       clearTimeout(t1)
+      clearTimeout(t2)
     }
-  }, [])
+  }, [onComplete])
 
   return (
     <div className="loader-wrap">

@@ -9,19 +9,20 @@ import Loading from './components/Loading'
 import { fetchData } from './utils/data'
 
 export default function App() {
-  const [loading, setLoading] = useState(true)
+  const [introDone, setIntroDone] = useState(false)
+  const [dataReady, setDataReady] = useState(false)
   const [data, setData] = useState(null)
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    // initial load (simulate brief loading to show animation)
+    // load app data while intro animation runs
     fetchData().then(d => {
       setData(d)
-      setTimeout(() => setLoading(false), 2800)
+      setDataReady(true)
     })
   }, [])
 
-  if (loading) return <Loading />
+  if (!introDone || !dataReady) return <Loading onComplete={() => setIntroDone(true)} />
 
   return (
     <div className="min-h-screen bg-[#12131a] text-[#e3e1ec] flex">
