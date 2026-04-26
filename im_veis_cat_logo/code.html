@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Properties Catalog - AETHER</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-container-low": "#1a1b22", "outline-variant": "#3c4a42", "on-secondary-fixed-variant": "#891933", "primary-fixed-dim": "#45dfa4", "on-primary-container": "#00563b", "inverse-surface": "#e3e1ec", "inverse-on-surface": "#2f3038", primary: "#5af0b3", "secondary-fixed-dim": "#ffb2b9", "on-tertiary-fixed": "#2c0051", "surface-container-highest": "#33343c", tertiary: "#e8ccff", "on-primary": "#003825", "on-tertiary-fixed-variant": "#62259b", "surface-variant": "#33343c", "on-secondary-fixed": "#400010", "surface-dim": "#12131a", "error-container": "#93000a", "surface-container-lowest": "#0d0e15", "primary-container": "#34d399", "surface-container-high": "#292931", "on-error": "#690005", surface: "#12131a", "on-secondary": "#67001f", "tertiary-fixed-dim": "#ddb8ff", "secondary-container": "#891933", "on-primary-fixed": "#002114", "on-background": "#e3e1ec", "on-surface": "#e3e1ec", "tertiary-container": "#d5a9ff", "on-primary-fixed-variant": "#005137", "on-secondary-container": "#ff97a3", "on-error-container": "#ffdad6", background: "#12131a", "surface-container": "#1e1f26", "surface-tint": "#45dfa4", "on-tertiary-container": "#662a9f", "inverse-primary": "#006c4b", outline: "#85948b", secondary: "#ffb2b9", "on-surface-variant": "#bbcac0", "tertiary-fixed": "#f0dbff", "on-tertiary": "#490081", "primary-fixed": "#68fcbf", "secondary-fixed": "#ffdadc", "surface-bright": "#383941", error: "#ffb4ab"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-max": "1440px", unit: "8px", "margin-desktop": "48px", "margin-mobile": "16px", gutter: "24px"}, fontFamily: {"headline-md": ["Clash Display"], "label-md": ["Plus Jakarta Sans"], "headline-xl": ["Clash Display"], "headline-lg": ["Clash Display"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"]}, fontSize: {"headline-md": ["24px", {lineHeight: "1.3", fontWeight: "500"}], "label-md": ["14px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600"}], "headline-xl": ["48px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-lg": ["32px", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "1", fontWeight: "500"}]}}}};</script>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-72 border-r border-white/10 shadow-[0_0_20px_rgba(0,245,255,0.1)] bg-slate-950/40 backdrop-blur-xl flex flex-col py-8 space-y-6 flex-shrink-0 z-40 relative">
+<div class="px-8 mb-4">
+<h1 class="font-['Space_Grotesk'] tracking-tight text-2xl font-black tracking-tighter bg-gradient-to-r from-[#00F5FF] to-violet-500 bg-clip-text text-transparent mb-1">AETHER</h1>
+<p class="font-label-sm text-label-sm text-slate-400 uppercase tracking-widest">Premium Living</p>
+</div>
+<nav class="flex-1 flex flex-col gap-2 px-4">
+<!-- Active Tab: Properties -->
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg w-full text-left hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] text-[#00F5FF] font-bold border-r-2 border-[#00F5FF] bg-white/5">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home_work</span>
+<span class="font-label-md text-label-md">Properties</span>
+</button>
+<!-- Inactive Tab: Brokers -->
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg w-full text-left hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-md text-label-md">Brokers</span>
+</button>
+<!-- Inactive Tab: Proposals -->
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg w-full text-left hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Proposals</span>
+</button>
+</nav>
+<div class="px-4 mt-auto space-y-2">
+<!-- Footer Tabs -->
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg w-full text-left hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</button>
+<button class="flex items-center gap-4 px-4 py-3 rounded-lg w-full text-left hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</button>
+<div class="pt-4 mt-4 border-t border-white/5">
+<button class="w-full py-3 px-4 bg-gradient-to-r from-[#00F5FF]/20 to-violet-500/20 hover:from-[#00F5FF]/30 hover:to-violet-500/30 border border-[#00F5FF]/30 rounded-xl text-[#00F5FF] font-label-md text-label-md text-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,245,255,0.2)]">
+                    List Property
+                </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- Abstract Background Glows -->
+<div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary-container/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-secondary-container/10 rounded-full blur-[100px] pointer-events-none"></div>
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-12 py-4 w-full full-width border-b border-white/10 bg-slate-950/20 backdrop-blur-lg flat no shadows">
+<!-- Search Bar (on_left) -->
+<div class="relative w-96 group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 text-lg">search</span>
+</div>
+<input class="w-full bg-surface-container/50 border border-white/10 rounded-xl py-2.5 pl-11 pr-4 font-['Space_Grotesk'] text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus-within:ring-1 focus-within:ring-[#00F5FF] transition-all bg-white/5 hover:bg-white/10" placeholder="Search locations, IDs, or features..." type="text"/>
+</div>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-lg transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-[#00F5FF] rounded-full shadow-[0_0_8px_#00F5FF]"></span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="w-px h-6 bg-white/10 mx-2"></div>
+<button class="flex items-center gap-3 hover:bg-white/5 p-1.5 rounded-lg transition-colors">
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-white/20 object-cover" data-alt="Portrait of a sophisticated man in modern minimalist attire, cinematic moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsBdTyRk6vYpNrI-VwZBpbaCYBRX3yndFeIDFfKFnuBzCDBGoZ1qI5PqCV0FeLn__FWH8IKy19d4_y_rKfwcDbjnr3NMN7pMngs5tjQirgnhAIwaiIarhHjG8gmeqrnJCZk2YRXlpR8W0USf8xS4AgvWferhm08twdqR3XPu-AA_JNuRsCcbixZLV9fHeita5L1eqr7UubTa8eeInQoGawMhkQKxAQTHUurfSe0w8U7gL-ICXHAIRb_1GRdREoZP7--D1YkOzFKUNe"/>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Area -->
+<main class="flex-1 overflow-y-auto p-12">
+<div class="max-w-[container-max] mx-auto">
+<!-- Page Header & Filters -->
+<div class="mb-10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2 tracking-tight">Discover</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Exclusive high-tech habitats and orbital suites.</p>
+</div>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container rounded-lg border border-outline-variant/50 hover:border-primary-container/50 hover:bg-surface-container-high transition-all text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-lg">tune</span>
+                            Advanced Filters
+                        </button>
+</div>
+<!-- Glassmorphic Filter Bar -->
+<div class="bg-surface-container-low/40 backdrop-blur-xl border border-white/5 rounded-2xl p-2 flex flex-wrap gap-2 items-center shadow-lg">
+<div class="flex-1 min-w-[200px] bg-surface-container/50 rounded-xl px-4 py-2.5 flex items-center gap-3 border border-transparent hover:border-white/10 transition-colors">
+<span class="material-symbols-outlined text-outline">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline-variant uppercase">Location</span>
+<select class="bg-transparent border-none p-0 text-on-surface font-body-md text-body-md focus:ring-0 cursor-pointer appearance-none outline-none">
+<option class="bg-surface-container text-on-surface">Neo-Tokyo, Sector 4</option>
+<option class="bg-surface-container text-on-surface">Luna Prime Base</option>
+</select>
+</div>
+</div>
+<div class="w-px h-10 bg-white/5 hidden md:block"></div>
+<div class="flex-1 min-w-[200px] bg-surface-container/50 rounded-xl px-4 py-2.5 flex items-center gap-3 border border-transparent hover:border-white/10 transition-colors">
+<span class="material-symbols-outlined text-outline">payments</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline-variant uppercase">Price Range</span>
+<select class="bg-transparent border-none p-0 text-on-surface font-body-md text-body-md focus:ring-0 cursor-pointer appearance-none outline-none">
+<option class="bg-surface-container text-on-surface">$10k - $25k / mo</option>
+<option class="bg-surface-container text-on-surface">$25k+ / mo</option>
+</select>
+</div>
+</div>
+<div class="w-px h-10 bg-white/5 hidden md:block"></div>
+<div class="flex-1 min-w-[200px] flex gap-2 px-2">
+<span class="px-4 py-2 rounded-full border border-primary-container/30 text-primary-fixed bg-primary-container/10 font-label-sm text-label-sm flex items-center gap-1 cursor-pointer hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[16px]">wifi</span> HyperNet
+                            </span>
+<span class="px-4 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 cursor-pointer hover:border-white/30 transition-colors">
+<span class="material-symbols-outlined text-[16px]">pool</span> Zero-G Pool
+                            </span>
+</div>
+</div>
+</div>
+<!-- Properties Grid (Bento/Asymmetric feel) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Featured Property (Spans 2 columns) -->
+<div class="col-span-1 md:col-span-2 relative group rounded-2xl overflow-hidden bg-surface-container/20 border border-white/5 hover:border-primary-container/30 transition-all duration-500 h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Futuristic luxury mansion with glowing neon accents and expansive glass walls, dark moody atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8wohK0ET69TIWMhp2MkGRwfmiscWvrQxGECU4Jfe4FRzRb0d0ZdYjp_uBaechVZ-SCU1tjwgnZfqOXBoM0lEFxIulj4MWT32xjcigYfLfOSqjs0V43NhLzldlJ-Gm2DaYEyq1xC_jxzKf_qyuj0n2MsTD70w0capxrQXX9jcbO9zurfEE0eec6ZqNQC910E5Wr6aFGKz1ESdyLuGfgdD9e9Q2s_6s1g3wyklqXQTWts86UTPr4AKlSx8rerJZnEsJGWhSXCkAu5hg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-lowest via-surface-lowest/60 to-transparent"></div>
+<div class="absolute bottom-0 w-full p-8 flex justify-between items-end backdrop-blur-md bg-surface-container-lowest/40 border-t border-white/10">
+<div>
+<div class="flex gap-2 mb-3">
+<span class="px-2.5 py-1 rounded bg-black/50 backdrop-blur-md border border-white/10 font-label-sm text-label-sm text-primary-fixed">Featured</span>
+<span class="px-2.5 py-1 rounded bg-black/50 backdrop-blur-md border border-white/10 font-label-sm text-label-sm text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span> 9.8
+                                    </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-white mb-1">Aetheria Penthouse</h3>
+<p class="font-body-md text-body-md text-slate-300 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Neo-Tokyo, Sector 4
+                                </p>
+</div>
+<div class="text-right">
+<div class="font-headline-lg text-headline-lg text-primary-fixed drop-shadow-[0_0_10px_rgba(0,245,255,0.5)]">$25,000<span class="text-lg text-slate-400 font-normal">/mo</span></div>
+<button class="mt-4 px-6 py-3 bg-white text-surface-lowest font-label-md text-label-md rounded-xl hover:bg-primary-container transition-colors shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                                    View Details
+                                </button>
+</div>
+</div>
+</div>
+<!-- Standard Card 1 -->
+<div class="relative group rounded-2xl overflow-hidden bg-surface-container-low border border-white/5 hover:border-secondary-container/50 transition-all duration-500 h-[400px] flex flex-col">
+<div class="relative h-[60%] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Sleek modern minimalist bedroom with panoramic window overlooking a futuristic cyberpunk city at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzZxis22fTI-g1Cyi0ad_vVNt1RMQYsBLajJuTFfTVu8DamS-jCVUvdORIFNmtzjTxMEADHKA3ZksPRBgAOJ5gWGYeUm0ounKeyBgg3u5UZQtALmRY--jF3TY7t016bXrbepzAjxa6RUe2DZ_AzDA7eC3ecjytc8iJJV9X_x5Pz5tDLYoAEqT5dQXucKWoXbc21pAcIZ-XwyPgR1bBG9IZ3Xrg9l9x5kyjGAsUeAgC-luEUChLRgjUa8RwQI2S4SC2JRia-RIJZeHN"/>
+<div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center border border-white/10 cursor-pointer hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-white text-[18px]">favorite</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between bg-surface-container-low">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 truncate">Orbital Villa 7</h3>
+<p class="font-body-sm text-body-md text-on-surface-variant flex items-center gap-1 text-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Low Earth Orbit
+                                </p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="font-headline-md text-headline-md text-on-surface">$18,500<span class="text-sm text-outline-variant">/mo</span></div>
+<button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Standard Card 2 -->
+<div class="relative group rounded-2xl overflow-hidden bg-surface-container-low border border-white/5 hover:border-secondary-container/50 transition-all duration-500 h-[400px] flex flex-col">
+<div class="relative h-[60%] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="High-end corporate living space with dark materials, subtle cyan lighting, and sleek furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByOGf1FuaYNctZI4Ngrb618jHh2XMj4ujRikuHBzz-tCtMSPo1hAQ-xpkhMRZYB98gqWbLsklA1n2PeogYEmdagLjZlako9mPZzIQhfbKkR387Sdw--0mC0RqYR32DPI1_MbnDAnkZkGfFwVXQKVzy9Ily9rnARH0rk0-4fEsSiYzWlHInLGjEKaNiUAav3n91nDzBOpuE98x1CThzavD2DMEbsZ2A7wHyBVGWBSugwP1vJgNOLFNH6Dj5Udddh4fLHyQlalh3tcH0"/>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between bg-surface-container-low">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1 truncate">Subaquatic Suite</h3>
+<p class="font-body-sm text-body-md text-on-surface-variant flex items-center gap-1 text-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Pacific Rim Trench
+                                </p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="font-headline-md text-headline-md text-on-surface">$12,000<span class="text-sm text-outline-variant">/mo</span></div>
+<button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Loading Skeleton State 1 -->
+<div class="relative rounded-2xl overflow-hidden bg-surface-container border border-white/5 h-[400px] flex flex-col">
+<!-- Shimmer Image Area -->
+<div class="relative h-[60%] bg-surface-container-highest overflow-hidden">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+</div>
+<!-- Shimmer Content Area -->
+<div class="p-6 flex-1 flex flex-col justify-between bg-surface-container-low">
+<div>
+<div class="h-6 w-3/4 bg-surface-container-highest rounded mb-3 overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+</div>
+<div class="h-4 w-1/2 bg-surface-container-highest rounded overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="h-8 w-1/3 bg-surface-container-highest rounded overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Loading Skeleton State 2 -->
+<div class="relative rounded-2xl overflow-hidden bg-surface-container border border-white/5 h-[400px] flex flex-col">
+<div class="relative h-[60%] bg-surface-container-highest overflow-hidden">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" style="animation-delay: 0.2s"></div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between bg-surface-container-low">
+<div>
+<div class="h-6 w-2/3 bg-surface-container-highest rounded mb-3 overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" style="animation-delay: 0.2s"></div>
+</div>
+<div class="h-4 w-2/5 bg-surface-container-highest rounded overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" style="animation-delay: 0.2s"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="h-8 w-1/4 bg-surface-container-highest rounded overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" style="animation-delay: 0.2s"></div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden relative">
+<div class="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent" style="animation-delay: 0.2s"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Spacer -->
+<div class="h-24"></div>
+</div>
+</main>
+</div>
+<!-- Define custom shimmer animation in a tiny style block just for the skeleton as standard tailwind pulse doesn't give the 'scanning' light effect requested -->
+<style>
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</body></html>

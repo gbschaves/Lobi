@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aetheric Estates</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-container-low": "#1a1b22", "outline-variant": "#3c4a42", "on-secondary-fixed-variant": "#891933", "primary-fixed-dim": "#45dfa4", "on-primary-container": "#00563b", "inverse-surface": "#e3e1ec", "inverse-on-surface": "#2f3038", primary: "#5af0b3", "secondary-fixed-dim": "#ffb2b9", "on-tertiary-fixed": "#2c0051", "surface-container-highest": "#33343c", tertiary: "#e8ccff", "on-primary": "#003825", "on-tertiary-fixed-variant": "#62259b", "surface-variant": "#33343c", "on-secondary-fixed": "#400010", "surface-dim": "#12131a", "error-container": "#93000a", "surface-container-lowest": "#0d0e15", "primary-container": "#34d399", "surface-container-high": "#292931", "on-error": "#690005", surface: "#12131a", "on-secondary": "#67001f", "tertiary-fixed-dim": "#ddb8ff", "secondary-container": "#891933", "on-primary-fixed": "#002114", "on-background": "#e3e1ec", "on-surface": "#e3e1ec", "tertiary-container": "#d5a9ff", "on-primary-fixed-variant": "#005137", "on-secondary-container": "#ff97a3", "on-error-container": "#ffdad6", background: "#12131a", "surface-container": "#1e1f26", "surface-tint": "#45dfa4", "on-tertiary-container": "#662a9f", "inverse-primary": "#006c4b", outline: "#85948b", secondary: "#ffb2b9", "on-surface-variant": "#bbcac0", "tertiary-fixed": "#f0dbff", "on-tertiary": "#490081", "primary-fixed": "#68fcbf", "secondary-fixed": "#ffdadc", "surface-bright": "#383941", error: "#ffb4ab"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-max": "1440px", unit: "8px", "margin-desktop": "48px", "margin-mobile": "16px", gutter: "24px"}, fontFamily: {"headline-md": ["Clash Display"], "label-md": ["Plus Jakarta Sans"], "headline-xl": ["Clash Display"], "headline-lg": ["Clash Display"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"]}, fontSize: {"headline-md": ["24px", {lineHeight: "1.3", fontWeight: "500"}], "label-md": ["14px", {lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600"}], "headline-xl": ["48px", {lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-lg": ["32px", {lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "1.6", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "1.6", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "1", fontWeight: "500"}]}}}};</script>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Component -->
+<nav class="hidden md:flex flex-col h-screen w-72 border-r border-white/10 bg-slate-950/40 backdrop-blur-xl shadow-[0_0_20px_rgba(0,245,255,0.1)] py-8 space-y-6 z-50 shrink-0">
+<!-- Brand Header -->
+<div class="px-8 flex flex-col gap-1 mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-3xl" style="font-variation-settings: 'FILL' 1;">hexagon</span>
+<h1 class="text-2xl font-black tracking-tighter bg-gradient-to-r from-[#00F5FF] to-violet-500 bg-clip-text text-transparent font-['Space_Grotesk']">AETHER</h1>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest pl-11">Premium Living</p>
+</div>
+<!-- Primary Navigation Tabs -->
+<div class="flex-1 px-4 space-y-2">
+<!-- Active Tab: Properties -->
+<button class="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-[#00F5FF] font-bold border-r-2 border-[#00F5FF] transition-all bg-white/5 font-['Space_Grotesk'] tracking-tight group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home_work</span>
+<span class="font-label-md text-label-md">Properties</span>
+</button>
+<!-- Inactive Tab: Brokers -->
+<button class="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] transition-transform font-['Space_Grotesk'] tracking-tight group">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-md text-label-md group-hover:text-white">Brokers</span>
+</button>
+<!-- Inactive Tab: Proposals -->
+<button class="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] transition-transform font-['Space_Grotesk'] tracking-tight group">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md group-hover:text-white">Proposals</span>
+</button>
+</div>
+<!-- Footer Actions -->
+<div class="px-4 space-y-2 mt-auto">
+<!-- CTA Button -->
+<button class="w-full mb-6 py-3 px-4 bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-container font-label-md text-label-md rounded-lg shadow-[0_0_15px_rgba(0,245,255,0.4)] hover:shadow-[0_0_25px_rgba(0,245,255,0.6)] transition-all duration-300 transform hover:-translate-y-0.5">
+                List Property
+            </button>
+<!-- Settings -->
+<button class="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] transition-transform font-['Space_Grotesk'] tracking-tight">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</button>
+<!-- Support -->
+<button class="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 scale-[1.02] active:scale-[0.98] transition-transform font-['Space_Grotesk'] tracking-tight">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</button>
+<!-- User Profile Snippet -->
+<div class="mt-4 pt-4 border-t border-white/10 flex items-center gap-3 px-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/20 p-0.5">
+<img alt="User Profile Avatar" class="w-full h-full object-cover rounded-full" data-alt="portrait of a confident business person in subtle cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD6p4dpZZZISuRfi_-BGJ84sBAVwzKdHUnVE2bP7j4VfiTQza8DDxlLv0ggSStnnr-hDinrRBaKjgvJ4_6zqRR4tpo5wKVhMpN3QHtTzSpJOWzNLBvuBY7hcXI82f70ZD165Hxjb_SV26RQD-1cGNX-pUKHHP-kMjfgleZa9K5icT0agO8BduR9M1BKE8GaeYfaFHgwyAcvhEUg1QZ2Qo4n9SY8I8iqKyrLyr6oPQyLW93Om84elPei5AR5_9URYixVRxAI5jqGfHY"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-white">Alex Mercer</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Admin</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col h-screen overflow-y-auto overflow-x-hidden relative scroll-smooth">
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-12 py-4 w-full bg-slate-950/20 backdrop-blur-lg">
+<!-- Left: Search Bar -->
+<div class="flex-1 max-w-md relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-[#00F5FF] transition-colors">search</span>
+</div>
+<input class="w-full bg-surface-container/50 border border-white/10 rounded-lg pl-10 pr-4 py-2 font-['Space_Grotesk'] text-sm font-medium text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#00F5FF] focus:border-transparent transition-all hover:bg-white/5" placeholder="Search locations, IDs..." type="text"/>
+</div>
+<!-- Center: Brand (Hidden per JSON style_brand_logo: "hidden") -->
+<div class="hidden font-headline-lg text-headline-lg font-extrabold tracking-tight">AETHER</div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-[#00F5FF] rounded-full shadow-[0_0_8px_rgba(0,245,255,0.8)]"></span>
+</button>
+<button class="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="ml-4 w-9 h-9 rounded-full overflow-hidden border border-white/20 cursor-pointer hover:border-[#00F5FF] transition-colors">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="portrait of a confident business person in subtle cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYBMrPAju3ZayqgPGTykYfcRT-FeQ9QVXxB66W9zRj0CIWU2qdA835fGXIEci1kr96NPsl7BnfvK_oYaTEhccyxNHFqg72NWBBm4BwvHLsL5a-G9sUEXlGsY8eJ8KzdZ-exWAwIGFPwevXfoI3nGo9Z1LIuksIyP6sMcSVG8caGWnOKuZDllfmz_xv7QTGhRK_adXwD9pn5T2I36Itn-iwA5qCM7w3gqEJzu-iZgfO612I1eRmefABye0P57FbP4OaPrbUXOs8grlN"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 pb-24">
+<!-- Hero Section -->
+<section class="relative w-full h-[716px] min-h-[600px] flex flex-col justify-center items-center px-6 md:px-12 lg:px-24">
+<!-- Hero Background Image & Gradient Overlays -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat" data-alt="ultra-modern glass architectural mansion overlooking ocean at twilight with glowing interior lighting and ethereal atmosphere" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTVzzvOWVXw32hgAu1jbaxic9aTbJnu4Z70BzVm0NGpj0W1bddOzXB9sfRyeAbzMdJn6pKCSCJN9EpvS9Fif-_L95UJrYIhdxwp105Agoch03KVpipBw_5rrW4Y_-GYM5RaxxU0Urc9Qmert1JUlUzrFJe1RmuN6TMafeiUL3UbbD7JgpMGkYhzXx_EosgxvhK84u6_0Sn6hGzpNeRykt6bWlfMEcdaE4sKwOSYRgGc92sRzVsV9BmXFgvw2n7lQe221TfMFrVEwm7');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 w-full max-w-5xl flex flex-col items-center text-center gap-8 mt-12">
+<h2 class="font-headline-xl text-headline-xl lg:text-[72px] leading-[1.1] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-primary to-slate-400 drop-shadow-lg">
+                        Elevate Your Reality.
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Discover ethereal spaces and futuristic sanctuaries curated for the vanguard of modern living.
+                    </p>
+<!-- High-End Search Bar (Glassmorphism) -->
+<div class="w-full max-w-4xl mt-8 p-3 rounded-2xl bg-surface-container-low/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex flex-col md:flex-row gap-3">
+<!-- Location Input -->
+<div class="flex-1 flex items-center gap-3 bg-surface-container/50 hover:bg-surface-container/80 transition-colors rounded-xl px-4 py-3 border border-transparent focus-within:border-primary-container/50 focus-within:ring-1 focus-within:ring-primary-container/30">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+<div class="flex flex-col items-start w-full">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Location</label>
+<input class="w-full bg-transparent border-none p-0 font-body-md text-white placeholder-slate-500 focus:ring-0" placeholder="Where to?" type="text"/>
+</div>
+</div>
+<!-- Date Input -->
+<div class="flex-1 flex items-center gap-3 bg-surface-container/50 hover:bg-surface-container/80 transition-colors rounded-xl px-4 py-3 border border-transparent focus-within:border-primary-container/50 focus-within:ring-1 focus-within:ring-primary-container/30">
+<span class="material-symbols-outlined text-primary-container">calendar_month</span>
+<div class="flex flex-col items-start w-full">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Dates</label>
+<input class="w-full bg-transparent border-none p-0 font-body-md text-white placeholder-slate-500 focus:ring-0" placeholder="Check in - Check out" type="text"/>
+</div>
+</div>
+<!-- Guests Input -->
+<div class="flex-1 flex items-center gap-3 bg-surface-container/50 hover:bg-surface-container/80 transition-colors rounded-xl px-4 py-3 border border-transparent focus-within:border-primary-container/50 focus-within:ring-1 focus-within:ring-primary-container/30">
+<span class="material-symbols-outlined text-primary-container">group</span>
+<div class="flex flex-col items-start w-full">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Guests</label>
+<input class="w-full bg-transparent border-none p-0 font-body-md text-white placeholder-slate-500 focus:ring-0" placeholder="Add guests" type="text"/>
+</div>
+</div>
+<!-- Search Button -->
+<button class="md:w-auto w-full flex items-center justify-center gap-2 px-8 py-3 bg-primary-container hover:bg-primary-fixed text-on-primary-container rounded-xl font-label-md text-label-md transition-all shadow-[0_0_20px_rgba(0,245,255,0.2)] hover:shadow-[0_0_30px_rgba(0,245,255,0.5)]">
+<span class="material-symbols-outlined font-bold">search</span>
+<span>Explore</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Featured Properties Section -->
+<section class="px-6 md:px-12 lg:px-24 mt-12 max-w-[1600px] mx-auto">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-white mb-2">Featured Properties</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Exclusive listings selected for architectural brilliance.</p>
+</div>
+<button class="hidden md:flex items-center gap-2 font-label-md text-label-md text-primary-container hover:text-primary-fixed transition-colors">
+                        View All <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Glassmorphism Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Property Card 1 -->
+<article class="group relative rounded-2xl overflow-hidden bg-surface-container-low/30 backdrop-blur-md border border-white/10 hover:border-primary-container/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,245,255,0.15)] transform hover:-translate-y-1 cursor-pointer">
+<!-- Image Container -->
+<div class="relative h-72 w-full overflow-hidden">
+<img alt="Modern villa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="sleek modern minimalist villa with sharp geometric lines large glass windows at golden hour with soft warm sunset light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8DUK3XE02Z0tALsY5OjnZAJBJhTx7Q3YPwyTq7zshcJBy93eubKv12Fy3DESS79OGZkoC2j4Fh9CyKg4Iw5eqob0rR-fxt_IJm-PUJtiWVGAnmOMJFbMLuXgCCPyKRx05Hek5-FXFVOVuv-QYzG41f96lCABZ5xpXWJV1-e_IOSKsLIpexW-oipbhuCDp45ZWsaly0lBA3U9mcnWl0zE_WUy1n88dCnZChA_4YdbUtHa3JkI1D-XbKTbRqxY8wCN3h3rFMIYqvziX"/>
+<!-- Top Badges -->
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="px-3 py-1 bg-black/50 backdrop-blur-md border border-white/20 rounded-full font-label-sm text-label-sm text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span> 4.98
+                                </span>
+</div>
+<button class="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md border border-white/20 rounded-full text-white hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<!-- Card Content Overlay (Bottom) -->
+<div class="p-6 relative bg-gradient-to-t from-surface-container-low via-surface-container-low/90 to-transparent">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-white">The Obsidian House</h4>
+<div class="text-right">
+<span class="font-headline-md text-headline-md text-primary-container block">$8,500</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">/ night</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Neo-Kyoto, Sector 4
+                            </p>
+<!-- Amenities Chips -->
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded border border-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 bg-primary-container/5">
+<span class="material-symbols-outlined text-[14px]">pool</span> Pool
+                                </span>
+<span class="px-2 py-1 rounded border border-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 bg-primary-container/5">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span> Smart Home
+                                </span>
+<span class="px-2 py-1 rounded border border-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 bg-primary-container/5">
+<span class="material-symbols-outlined text-[14px]">local_parking</span> Helipad
+                                </span>
+</div>
+</div>
+</article>
+<!-- Property Card 2 -->
+<article class="group relative rounded-2xl overflow-hidden bg-surface-container-low/30 backdrop-blur-md border border-white/10 hover:border-primary-container/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,245,255,0.15)] transform hover:-translate-y-1 cursor-pointer">
+<div class="relative h-72 w-full overflow-hidden">
+<img alt="Futuristic loft" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="interior view of futuristic luxury penthouse with sweeping curved glass walls overlooking neon lit cyberpunk cityscape at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAboo2ZhcDKFPew4iPhckMyhFoETIRjcbRsoyk5mZf7zHAYa7puHbkXIq6lwY9A2jrNZKa-ORqDZ5RDFMkvjoMA_I4SRhXLjZGUXVP-J9wuguLs5S3PkbNd1zPjydlKhT7QmMM7AqwqZzNfoSgT3Q1JWRgQF_iiAJuqFDoe0zPlVoycUJF5PFBAGk52bQ-dpY5d3-XO5FwFpIKqwF10U54zmezTbkpJF_H9SG9gV_RDkAysmhJJFy29DhkVNoFuDwWHrNC6jufILnjA"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="px-3 py-1 bg-black/50 backdrop-blur-md border border-white/20 rounded-full font-label-sm text-label-sm text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span> 4.95
+                                </span>
+</div>
+<button class="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md border border-white/20 rounded-full text-white hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-6 relative bg-gradient-to-t from-surface-container-low via-surface-container-low/90 to-transparent">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-white">Aero Penthouse</h4>
+<div class="text-right">
+<span class="font-headline-md text-headline-md text-primary-container block">$12,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">/ night</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> New Angeles, Skyline
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded border border-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 bg-primary-container/5">
+<span class="material-symbols-outlined text-[14px]">view_in_ar</span> Hologrid
+                                </span>
+<span class="px-2 py-1 rounded border border-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 bg-primary-container/5">
+<span class="material-symbols-outlined text-[14px]">hot_tub</span> Spa
+                                </span>
+</div>
+</div>
+</article>
+<!-- Property Card 3 -->
+<article class="group relative rounded-2xl overflow-hidden bg-surface-container-low/30 backdrop-blur-md border border-white/10 hover:border-primary-container/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,245,255,0.15)] transform hover:-translate-y-1 cursor-pointer">
+<div class="relative h-72 w-full overflow-hidden">
+<img alt="Ethereal estate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="contemporary minimalist concrete home integrated into lush green cliffside overlooking misty valley at dawn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMhVf8hYWCWcUQ5UnQN00lK9XuFxGZnPEVmNxnOIqMPtjweaTsiVaE5LQDsu52UxH3AaXRuKN4BiVoDNDbVLkwfwx9IqggQUx59xipnzqIO7GE1QILxP9Vd6DK6ULsDtfZrIWiDX0QU7-JTD9Zge9S7QYOaNUR2wCn3Z8YOaHdcK32oIuvyD4BLYTGSegok3ctIKi2FaHouSqIUlkywFySyIad3ZrWYuhKwqMSiyXkV6jllYf4tF0qUAzQ0zP-bF-Nn1BaGyOqe2-W"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="px-3 py-1 bg-black/50 backdrop-blur-md border border-white/20 rounded-full font-label-sm text-label-sm text-white flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span> 5.00
+                                </span>
+</div>
+<button class="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md border border-white/20 rounded-full text-white hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="p-6 relative bg-gradient-to-t from-surface-container-low via-surface-container-low/90 to-transparent">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-white">Verdant Sanctuary</h4>
+<div class="text-right">
+<span class="font-headline-md text-headline-md text-primary-container block">$5,200</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">/ night</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Eden Prime, Highlands
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded border border-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 bg-primary-container/5">
+<span class="material-symbols-outlined text-[14px]">forest</span> Eco-Dome
+                                </span>
+<span class="px-2 py-1 rounded border border-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm flex items-center gap-1 bg-primary-container/5">
+<span class="material-symbols-outlined text-[14px]">wifi</span> Hyperlink
+                                </span>
+</div>
+</div>
+</article>
+</div>
+</section>
+</div>
+</main>
+</body></html>

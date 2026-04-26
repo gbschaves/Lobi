@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+:root { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+
+.loader-wrap { display:flex; align-items:center; justify-content:center; height:100vh; background:#0f1113; color:#e3e1ec; }
+.logo-small { font-weight:800; font-size:48px; letter-spacing:1px; transition: all 700ms ease; }
+.logo-expanded { font-size:20px; margin-left:12px; opacity:0; transform:scale(0.95); transition: all 700ms ease; }
+.logo-expanded.show { opacity:1; transform:scale(1); }
+
+.table { width:100%; border-collapse:collapse; }
+.table th, .table td { padding:8px 12px; border-bottom:1px solid rgba(255,255,255,0.04); }
+.btn {
+	background: rgba(255,255,255,0.06);
+	padding: 8px 12px;
+	border-radius: 8px;
+	border: 1px solid rgba(255,255,255,0.12);
+	transition: all 160ms ease;
+}
+.btn:hover { background: rgba(0,245,255,0.12); border-color: rgba(0,245,255,0.45); }
+
+.glass-panel {
+	background-color: rgba(19, 27, 46, 0.35);
+	backdrop-filter: blur(10px);
+}

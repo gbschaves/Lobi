@@ -1,0 +1,58 @@
+{
+  "app": {
+    "nome": "Lobi",
+    "nomeExpandido": "Locação imobiliária",
+    "slogan": "Premium Living"
+  },
+  "imobiliarias": [
+    { "id": 1, "nome": "Lobi Imóveis", "cidade": "São Paulo" },
+    { "id": 2, "nome": "Nova Habitat", "cidade": "Campinas" }
+  ],
+  "imoveis": [
+    {
+      "id": 1,
+      "titulo": "Apartamento Central",
+      "cidade": "São Paulo",
+      "preco": 2500,
+      "corretorId": 1,
+      "imagem": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "titulo": "Cobertura Vista Parque",
+      "cidade": "Campinas",
+      "preco": 4200,
+      "corretorId": 2,
+      "imagem": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": 3,
+      "titulo": "Studio Moderno",
+      "cidade": "São Paulo",
+      "preco": 1900,
+      "corretorId": 1,
+      "imagem": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "corretores": [
+    {
+      "id": 1,
+      "nome": "Carlos Silva",
+      "telefone": "(11) 99999-0000",
+      "avaliacao": 4.9,
+      "imagem": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop"
+    },
+    {
+      "id": 2,
+      "nome": "Mariana Costa",
+      "telefone": "(19) 98888-1000",
+      "avaliacao": 4.8,
+      "imagem": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop"
+    }
+  ],
+  "propostas": [
+    { "id": 1, "imovelId": 1, "cliente": "Ana", "valor": 2500, "status": "Pendente" },
+    { "id": 2, "imovelId": 2, "cliente": "Rafael", "valor": 4100, "status": "Aprovada" },
+    { "id": 3, "imovelId": 3, "cliente": "Bruna", "valor": 1800, "status": "Revisão" }
+  ]
+}
