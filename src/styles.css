@@ -35,10 +35,12 @@
 }
 .logo-split .lo,
 .logo-split .bi { transition: transform 790ms cubic-bezier(0.22, 1, 0.36, 1); }
-.phase-1 .logo-split .lo,
-.phase-2 .logo-split .lo { transform: translateX(-46px); }
-.phase-1 .logo-split .bi,
-.phase-2 .logo-split .bi { transform: translateX(46px); }
+.logo-split .lo { transform: translateX(0); }
+.logo-split .bi { transform: translateX(0); }
+.phase-2 .logo-split .lo,
+.phase-3 .logo-split .lo { transform: translateX(-46px); }
+.phase-2 .logo-split .bi,
+.phase-3 .logo-split .bi { transform: translateX(46px); }
 
 .logo-final {
 	position: absolute;
@@ -61,8 +63,10 @@
 	transform: translateX(0);
 	transition: transform 790ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.phase-2 .logo-final .lo-final { transform: translateX(-2px); }
-.phase-2 .logo-final .bi-final { transform: translateX(2px); }
+.phase-2 .logo-final .lo-final,
+.phase-3 .logo-final .lo-final { transform: translateX(-2px); }
+.phase-2 .logo-final .bi-final,
+.phase-3 .logo-final .bi-final { transform: translateX(2px); }
 
 .letters {
 	display: inline-flex;
@@ -78,15 +82,18 @@
 	animation-delay: calc(var(--i) * 52ms);
 }
 
-.phase-2 .logo-final.show .lo-tail .char {
+.phase-2 .logo-final.show .lo-tail .char,
+.phase-3 .logo-final.show .lo-tail .char {
 	animation-name: emerge-from-lo;
 }
 
-.phase-2 .logo-final.show .bi-left .char {
+.phase-2 .logo-final.show .bi-left .char,
+.phase-3 .logo-final.show .bi-left .char {
 	animation-name: emerge-left-from-bi;
 }
 
-.phase-2 .logo-final.show .bi-right .char {
+.phase-2 .logo-final.show .bi-right .char,
+.phase-3 .logo-final.show .bi-right .char {
 	animation-name: emerge-right-from-bi;
 }
 
