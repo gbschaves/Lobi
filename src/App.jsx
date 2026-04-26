@@ -17,7 +17,7 @@ export default function App() {
     // initial load (simulate brief loading to show animation)
     fetchData().then(d => {
       setData(d)
-      setTimeout(() => setLoading(false), 4300)
+      setTimeout(() => setLoading(false), 5200)
     })
   }, [])
 

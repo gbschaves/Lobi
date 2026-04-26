@@ -49,6 +49,8 @@
 	transform: translateY(8px);
 	transition: opacity 900ms ease, transform 900ms ease;
 	white-space: nowrap;
+	display: flex;
+	align-items: baseline;
 }
 .logo-final.show { opacity: 1; transform: translateY(0); }
 
@@ -61,6 +63,65 @@
 }
 .phase-2 .logo-final .lo-final { transform: translateX(-2px); }
 .phase-2 .logo-final .bi-final { transform: translateX(2px); }
+
+.letters {
+	display: inline-flex;
+	color: #e3e1ec;
+}
+
+.letters .char {
+	opacity: 0;
+	will-change: transform, opacity;
+	animation-duration: 520ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+	animation-delay: calc(var(--i) * 70ms);
+}
+
+.phase-2 .logo-final.show .lo-tail .char {
+	animation-name: emerge-from-lo;
+}
+
+.phase-2 .logo-final.show .bi-left .char {
+	animation-name: emerge-left-from-bi;
+}
+
+.phase-2 .logo-final.show .bi-right .char {
+	animation-name: emerge-right-from-bi;
+}
+
+@keyframes emerge-from-lo {
+	from {
+		opacity: 0;
+		transform: translateX(-22px) scale(0.82);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0) scale(1);
+	}
+}
+
+@keyframes emerge-left-from-bi {
+	from {
+		opacity: 0;
+		transform: translateX(20px) scale(0.82);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0) scale(1);
+	}
+}
+
+@keyframes emerge-right-from-bi {
+	from {
+		opacity: 0;
+		transform: translateX(-20px) scale(0.82);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0) scale(1);
+	}
+}
 
 .table { width:100%; border-collapse:collapse; }
 .table th, .table td { padding:8px 12px; border-bottom:1px solid rgba(255,255,255,0.04); }

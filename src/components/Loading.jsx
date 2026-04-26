@@ -1,5 +1,17 @@
 import React, { useEffect, useState } from 'react'
 
+function AnimatedLetters({ text, className, start = 0 }) {
+  return (
+    <span className={className}>
+      {text.split('').map((ch, i) => (
+        <span key={`${className}-${i}-${ch}`} className="char" style={{ '--i': i + start }}>
+          {ch === ' ' ? '\u00A0' : ch}
+        </span>
+      ))}
+    </span>
+  )
+}
+
 export default function Loading() {
   const [phase, setPhase] = useState(0)
 
@@ -25,10 +37,10 @@ export default function Loading() {
 
         <div className={`logo-final ${phase === 2 ? 'show' : ''}`}>
           <span className="accent lo-final">Lo</span>
-          <span className="neutral">cação</span>
-          <span className="neutral"> imo</span>
+          <AnimatedLetters text="cação " className="letters lo-tail" start={0} />
+          <AnimatedLetters text="imo" className="letters bi-left" start={6} />
           <span className="accent bi-final">Bi</span>
-          <span className="neutral">liaria</span>
+          <AnimatedLetters text="liaria" className="letters bi-right" start={9} />
         </div>
       </div>
     </div>
