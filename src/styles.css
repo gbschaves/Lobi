@@ -70,17 +70,20 @@
 }
 
 @keyframes emerge-from-lo {
-	from { max-width: 0; opacity: 0; transform: translateX(-10px); }
-	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
+	/* Lo desliza para esquerda; letras só expandem, sem translateX extra para não colidir */
+	from { max-width: 0; opacity: 0; }
+	to   { max-width: 1.6em; opacity: 1; }
 }
 
 @keyframes emerge-left-from-bi {
-	from { max-width: 0; opacity: 0; transform: translateX(10px); }
+	/* letras de "imo" vêm da direita (de Bi) para a esquerda */
+	from { max-width: 0; opacity: 0; transform: translateX(8px); }
 	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
 }
 
 @keyframes emerge-right-from-bi {
-	from { max-width: 0; opacity: 0; transform: translateX(-10px); }
+	/* letras de "liaria" vêm da esquerda (de Bi) para a direita */
+	from { max-width: 0; opacity: 0; transform: translateX(-8px); }
 	to   { max-width: 1.6em; opacity: 1; transform: translateX(0); }
 }
 

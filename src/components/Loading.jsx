@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-function AnimatedLetters({ text, className, start = 0, reverseStagger = false, onLastCharAnimationEnd }) {
+// Renderiza letras uma a uma com stagger via CSS custom property --i
+// reverseStagger: a última letra (visualmente mais próxima de Bi) aparece primeiro
+function AnimatedLetters({ text, className, start = 0, reverseStagger = false, onDone }) {
   const len = text.length
   return (
     <span className={className}>
       {text.split('').map((ch, i) => {
-        const idx = reverseStagger ? start + (len - 1 - i) : start + i
+        const staggerIndex = reverseStagger ? start + (len - 1 - i) : start + i
+        const isLast = i === len - 1
         return (
           <span
-            key={`${className}-${i}-${ch}`}
+            key={i}
             className="char"
-            style={{ '--i': idx }}
-            onAnimationEnd={i === len - 1 ? onLastCharAnimationEnd : undefined}
+            style={{ '--i': staggerIndex }}
+            onAnimationEnd={isLast ? onDone : undefined}
           >
             {ch === ' ' ? '\u00A0' : ch}
           </span>
@@ -21,44 +24,37 @@ function AnimatedLetters({ text, className, start = 0, reverseStagger = false, o
   )
 }
 
-const LOBI_HOLD_MS       = 1200
-const LETTER_STAGGER_MS  = 52
-const LETTER_DURATION_MS = 380
-const LETTER_DELAY_BASE  = 30
-const LAST_LETTER_I      = 14   // "cação "(0-5) + "imo"(6-8) + "liaria"(9-14) → último --i = 14
-// Tempo exato em que a última letra termina de animar, a partir do mount
-const LETTERS_DONE_MS    = LOBI_HOLD_MS + (LAST_LETTER_I * LETTER_STAGGER_MS + LETTER_DELAY_BASE) + LETTER_DURATION_MS
-const FALLBACK_COMPLETE_MS = LETTERS_DONE_MS + 80  // dispara 80ms após o fim real → sem pausa morta
+const LOBI_HOLD_MS = 1000   // tempo que só "LoBi" fica visível antes das letras nascerem
 
 export default function Loading({ onComplete }) {
   const [phase, setPhase] = useState(0)
-  const finishedRef = useRef(false)
+  const calledRef = useRef(false)
 
-  function completeIntro() {
-    if (finishedRef.current) return
-    finishedRef.current = true
+  function finish() {
+    if (calledRef.current) return
+    calledRef.current = true
     onComplete?.()
   }
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), LOBI_HOLD_MS)
-    const t2 = setTimeout(() => completeIntro(), FALLBACK_COMPLETE_MS)
-
-    return () => {
-      clearTimeout(t1)
-      clearTimeout(t2)
-    }
-  }, []) // array vazio: timers disparam só no mount, nunca reiniciam
+    const t = setTimeout(() => setPhase(1), LOBI_HOLD_MS)
+    return () => clearTimeout(t)
+  }, [])
 
   return (
     <div className="loader-wrap">
-      <div className={`logo-stage phase-${phase}`}>
-        <div className={`logo-word ${phase >= 1 ? 'run' : ''}`}>
+      <div className="logo-stage">
+        <div className={`logo-word ${phase === 1 ? 'run' : ''}`}>
+          {/* Lo → desliza para esquerda; cação nasce saindo de Lo */}
           <span className="accent lo-anchor">Lo</span>
-          <AnimatedLetters text="cação " className="letters lo-tail" start={0} />
-          <AnimatedLetters text="imo" className="letters bi-left" start={6} reverseStagger />
+          <AnimatedLetters text="cação" className="letters lo-tail" start={0} />
+
+          {/* imo fica à esquerda de Bi; nasce de trás para frente (o primeiro, i por último) */}
+          <AnimatedLetters text="imo" className="letters bi-left" start={5} reverseStagger />
+
+          {/* Bi → desliza para direita; liaria nasce saindo de Bi */}
           <span className="accent bi-anchor">Bi</span>
-          <AnimatedLetters text="liaria" className="letters bi-right" start={9} onLastCharAnimationEnd={completeIntro} />
+          <AnimatedLetters text="liaria" className="letters bi-right" start={8} onDone={finish} />
         </div>
       </div>
     </div>
