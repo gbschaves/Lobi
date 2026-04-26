@@ -16,8 +16,8 @@ export default function Loading() {
   const [phase, setPhase] = useState(0)
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 1700)
-    const t2 = setTimeout(() => setPhase(2), 3200)
+    const t1 = setTimeout(() => setPhase(1), 1275)
+    const t2 = setTimeout(() => setPhase(2), 2400)
 
     return () => {
       clearTimeout(t1)
