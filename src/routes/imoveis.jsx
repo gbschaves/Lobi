@@ -23,7 +23,8 @@ const TIPO_OPTS = ["Casa", "Apartamento", "Cobertura", "Comercial", "Rural", "Te
 const FIELDS = [
   { key: "titulo", label: "Titulo", required: true },
   { key: "tipo", label: "Tipo", type: "select", required: true, options: TIPO_OPTS },
-  { key: "endereco", label: "Endereco", required: true },
+  { key: "cep", label: "CEP", type: "cep", fills: { endereco: "__full__" } },
+  { key: "endereco", label: "Endereço", required: true },
   { key: "preco", label: "Preco", required: true },
   { key: "quartos", label: "Quartos", type: "number" },
   { key: "banheiros", label: "Banheiros", type: "number" },
@@ -32,7 +33,7 @@ const FIELDS = [
   { key: "imobiliaria_nome", label: "Imobiliaria", required: true },
 ];
 
-const EMPTY = { titulo: "", tipo: "", endereco: "", preco: "", quartos: "", banheiros: "", area: "", status: "Disponivel", imobiliaria_nome: "" };
+const EMPTY = { titulo: "", tipo: "", cep: "", endereco: "", preco: "", quartos: "", banheiros: "", area: "", status: "Disponivel", imobiliaria_nome: "" };
 
 function ImoveisPage() {
   const { items, create, update, remove } = useLocalStorage("lobi:imoveis", dbSeed.imoveis);
