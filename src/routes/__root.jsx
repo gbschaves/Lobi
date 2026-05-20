@@ -45,18 +45,15 @@ const Route = createRootRouteWithContext()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Maison & Terra \u2014 Im\xF3veis curados" },
-      { name: "description", content: "Encontre, compre e alugue im\xF3veis exclusivos com agentes especializados." },
-      { name: "author", content: "Maison & Terra" },
-      { property: "og:title", content: "Maison & Terra \u2014 Im\xF3veis curados" },
-      { property: "og:description", content: "Encontre, compre e alugue im\xF3veis exclusivos com agentes especializados." },
+      { title: "LoBi \u2014 Loca\xE7\xE3o Imobili\xE1ria" },
+      { name: "description", content: "Plataforma de loca\xE7\xE3o imobili\xE1ria. Im\xF3veis, corretores e propostas." },
+      { name: "author", content: "LoBi" },
+      { property: "og:title", content: "LoBi \u2014 Loca\xE7\xE3o Imobili\xE1ria" },
+      { property: "og:description", content: "Plataforma de loca\xE7\xE3o imobili\xE1ria." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Maison & Terra \u2014 Im\xF3veis curados" },
-      { name: "twitter:description", content: "Encontre, compre e alugue im\xF3veis exclusivos com agentes especializados." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/50d9522a-02ac-499c-b37c-741a11299c8b/id-preview-50c10255--10406b0a-aa24-4106-9003-d9d1969a65aa.lovable.app-1778883244262.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/50d9522a-02ac-499c-b37c-741a11299c8b/id-preview-50c10255--10406b0a-aa24-4106-9003-d9d1969a65aa.lovable.app-1778883244262.png" }
+      { name: "twitter:title", content: "LoBi \u2014 Loca\xE7\xE3o Imobili\xE1ria" },
+      { name: "twitter:description", content: "Plataforma de loca\xE7\xE3o imobili\xE1ria." }
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

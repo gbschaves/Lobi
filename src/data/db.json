@@ -1,0 +1,138 @@
+{
+  "imobiliarias": [
+    {
+      "id": 1,
+      "nome": "LoBi Prime",
+      "cnpj": "12.345.678/0001-99",
+      "endereco": "Av. Paulista, 1200 – Bela Vista, São Paulo – SP",
+      "telefone": "(11) 3001-4000",
+      "email": "contato@lobiprime.com.br",
+      "website": "www.lobiprime.com.br"
+    },
+    {
+      "id": 2,
+      "nome": "Residência & Cia",
+      "cnpj": "98.765.432/0001-11",
+      "endereco": "Rua das Flores, 300 – Centro, Rio de Janeiro – RJ",
+      "telefone": "(21) 2200-9900",
+      "email": "info@residenciacia.com.br",
+      "website": "www.residenciacia.com.br"
+    },
+    {
+      "id": 3,
+      "nome": "Urban Imóveis",
+      "cnpj": "55.444.333/0001-22",
+      "endereco": "R. XV de Novembro, 800 – Centro, Curitiba – PR",
+      "telefone": "(41) 3300-2200",
+      "email": "urban@urbanimoveis.com.br",
+      "website": "www.urbanimoveis.com.br"
+    }
+  ],
+  "corretores": [
+    {
+      "id": 1,
+      "nome": "Carlos Andrade",
+      "creci": "CRECI-SP 123456",
+      "telefone": "(11) 99800-1234",
+      "email": "carlos@lobiprime.com.br",
+      "imobiliaria_id": 1,
+      "imobiliaria_nome": "LoBi Prime"
+    },
+    {
+      "id": 2,
+      "nome": "Fernanda Rocha",
+      "creci": "CRECI-RJ 654321",
+      "telefone": "(21) 98700-5678",
+      "email": "fernanda@residenciacia.com.br",
+      "imobiliaria_id": 2,
+      "imobiliaria_nome": "Residência & Cia"
+    },
+    {
+      "id": 3,
+      "nome": "Paulo Mendes",
+      "creci": "CRECI-PR 789012",
+      "telefone": "(41) 97600-9012",
+      "email": "paulo@urbanimoveis.com.br",
+      "imobiliaria_id": 3,
+      "imobiliaria_nome": "Urban Imóveis"
+    }
+  ],
+  "imoveis": [
+    {
+      "id": 1,
+      "titulo": "Casa Ipê Modernista",
+      "tipo": "Casa",
+      "endereco": "R. das Acácias, 45 – Jardins, São Paulo – SP",
+      "preco": "R$ 4.250.000",
+      "quartos": 4,
+      "banheiros": 3,
+      "area": "320 m²",
+      "status": "Disponível",
+      "imobiliaria_id": 1,
+      "imobiliaria_nome": "LoBi Prime"
+    },
+    {
+      "id": 2,
+      "titulo": "Penthouse Aurora",
+      "tipo": "Cobertura",
+      "endereco": "Av. Brigadeiro Faria Lima, 2000 – Itaim Bibi, São Paulo – SP",
+      "preco": "R$ 12.900/mês",
+      "quartos": 3,
+      "banheiros": 2,
+      "area": "210 m²",
+      "status": "Alugado",
+      "imobiliaria_id": 1,
+      "imobiliaria_nome": "LoBi Prime"
+    },
+    {
+      "id": 3,
+      "titulo": "Villa Costa Azul",
+      "tipo": "Casa",
+      "endereco": "Rua das Ostras, 12 – Búzios, Rio de Janeiro – RJ",
+      "preco": "R$ 18.500.000",
+      "quartos": 6,
+      "banheiros": 6,
+      "area": "920 m²",
+      "status": "Disponível",
+      "imobiliaria_id": 2,
+      "imobiliaria_nome": "Residência & Cia"
+    },
+    {
+      "id": 4,
+      "titulo": "Apê Moderno Curitiba",
+      "tipo": "Apartamento",
+      "endereco": "R. Comendador Araújo, 340 – Batel, Curitiba – PR",
+      "preco": "R$ 2.100/mês",
+      "quartos": 2,
+      "banheiros": 1,
+      "area": "75 m²",
+      "status": "Disponível",
+      "imobiliaria_id": 3,
+      "imobiliaria_nome": "Urban Imóveis"
+    }
+  ],
+  "propostas": [
+    {
+      "id": 1,
+      "imovel_id": 2,
+      "imovel_titulo": "Penthouse Aurora",
+      "locatario_nome": "Ana Beatriz Lima",
+      "locatario_email": "ana@email.com",
+      "locatario_telefone": "(11) 96000-0001",
+      "valor_proposta": "R$ 12.500/mês",
+      "data": "2025-01-15",
+      "status": "Aprovada"
+    },
+    {
+      "id": 2,
+      "imovel_id": 4,
+      "imovel_titulo": "Apê Moderno Curitiba",
+      "locatario_nome": "Roberto Souza",
+      "locatario_email": "roberto@email.com",
+      "locatario_telefone": "(41) 95000-0002",
+      "valor_proposta": "R$ 2.050/mês",
+      "data": "2025-01-20",
+      "status": "Pendente"
+    }
+  ]
+}

@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PropostasRouteImport } from './routes/propostas'
+import { Route as ImoveisRouteImport } from './routes/imoveis'
+import { Route as ImobiliariasRouteImport } from './routes/imobiliarias'
+import { Route as CorretoresRouteImport } from './routes/corretores'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PropostasRoute = PropostasRouteImport.update({
+  id: '/propostas',
+  path: '/propostas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImoveisRoute = ImoveisRouteImport.update({
+  id: '/imoveis',
+  path: '/imoveis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImobiliariasRoute = ImobiliariasRouteImport.update({
+  id: '/imobiliarias',
+  path: '/imobiliarias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorretoresRoute = CorretoresRouteImport.update({
+  id: '/corretores',
+  path: '/corretores',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,78 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/corretores': typeof CorretoresRoute
+  '/imobiliarias': typeof ImobiliariasRoute
+  '/imoveis': typeof ImoveisRoute
+  '/propostas': typeof PropostasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/corretores': typeof CorretoresRoute
+  '/imobiliarias': typeof ImobiliariasRoute
+  '/imoveis': typeof ImoveisRoute
+  '/propostas': typeof PropostasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/corretores': typeof CorretoresRoute
+  '/imobiliarias': typeof ImobiliariasRoute
+  '/imoveis': typeof ImoveisRoute
+  '/propostas': typeof PropostasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/corretores' | '/imobiliarias' | '/imoveis' | '/propostas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/corretores' | '/imobiliarias' | '/imoveis' | '/propostas'
+  id:
+    | '__root__'
+    | '/'
+    | '/corretores'
+    | '/imobiliarias'
+    | '/imoveis'
+    | '/propostas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CorretoresRoute: typeof CorretoresRoute
+  ImobiliariasRoute: typeof ImobiliariasRoute
+  ImoveisRoute: typeof ImoveisRoute
+  PropostasRoute: typeof PropostasRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/propostas': {
+      id: '/propostas'
+      path: '/propostas'
+      fullPath: '/propostas'
+      preLoaderRoute: typeof PropostasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/imoveis': {
+      id: '/imoveis'
+      path: '/imoveis'
+      fullPath: '/imoveis'
+      preLoaderRoute: typeof ImoveisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/imobiliarias': {
+      id: '/imobiliarias'
+      path: '/imobiliarias'
+      fullPath: '/imobiliarias'
+      preLoaderRoute: typeof ImobiliariasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corretores': {
+      id: '/corretores'
+      path: '/corretores'
+      fullPath: '/corretores'
+      preLoaderRoute: typeof CorretoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +127,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CorretoresRoute: CorretoresRoute,
+  ImobiliariasRoute: ImobiliariasRoute,
+  ImoveisRoute: ImoveisRoute,
+  PropostasRoute: PropostasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -8,10 +8,10 @@ import listing4 from "@/assets/listing-4.jpg";
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maison & Terra \u2014 Encontre o im\xF3vel dos seus sonhos" },
-      { name: "description", content: "Plataforma curada para localizar, comprar e alugar im\xF3veis exclusivos. Casas, apartamentos e propriedades \xFAnicas com agentes especializados." },
-      { property: "og:title", content: "Maison & Terra \u2014 Im\xF3veis curados" },
-      { property: "og:description", content: "Encontre, compre e contrate. Im\xF3veis exclusivos com curadoria editorial." }
+      { title: "LoBi \u2014 Loca\xE7\xE3o Imobili\xE1ria" },
+      { name: "description", content: "Plataforma de loca\xE7\xE3o imobili\xE1ria. Encontre im\xF3veis, corretores e fa\xE7a propostas." },
+      { property: "og:title", content: "LoBi \u2014 Loca\xE7\xE3o Imobili\xE1ria" },
+      { property: "og:description", content: "Loca\xE7\xE3o de im\xF3veis com curadoria e agilidade." }
     ]
   }),
   component: HomePage
@@ -26,9 +26,9 @@ function HomePage() {
   return <div className="min-h-screen bg-background text-foreground"><Header /><Hero /><SearchBar /><Featured /><Categories /><AgentsCTA /><Footer /></div>;
 }
 function Header() {
-  return <header className="absolute top-0 left-0 right-0 z-20"><div className="mx-auto max-w-7xl px-6 py-6 flex items-center justify-between"><Link to="/" className="flex items-center gap-2"><span className="h-9 w-9 rounded-full border border-[var(--gold)] flex items-center justify-center"><span className="font-display text-[var(--gold)] text-lg">M</span></span><span className="font-display text-xl text-cream tracking-wide">Maison &amp; Terra</span></Link><nav className="hidden md:flex items-center gap-8 text-sm text-cream/90"><a href="#listings" className="hover:text-[var(--gold)] transition">Imóveis</a><a href="#categories" className="hover:text-[var(--gold)] transition">Categorias</a><a href="#agents" className="hover:text-[var(--gold)] transition">Agentes</a><a href="#contact" className="hover:text-[var(--gold)] transition">Contato</a></nav><button className="text-sm px-5 py-2.5 rounded-full bg-[var(--gold)] text-[var(--olive-deep)] font-medium hover:bg-[var(--gold-deep)] hover:text-cream transition">
+  return <header className="absolute top-0 left-0 right-0 z-20"><div className="mx-auto max-w-7xl px-6 py-6 flex items-center justify-between"><Link to="/" className="flex items-center gap-2"><span className="h-9 w-9 rounded-full border border-[var(--gold)] flex items-center justify-center"><span className="font-display text-[var(--gold)] text-lg">L</span></span><span className="font-display text-xl text-cream tracking-wide">LoBi</span></Link><nav className="hidden md:flex items-center gap-8 text-sm text-cream/90"><Link to="/imoveis" className="hover:text-[var(--gold)] transition">Imóveis</Link><Link to="/corretores" className="hover:text-[var(--gold)] transition">Corretores</Link><Link to="/imobiliarias" className="hover:text-[var(--gold)] transition">Imobiliárias</Link><Link to="/propostas" className="hover:text-[var(--gold)] transition">Propostas</Link></nav><Link to="/imoveis" className="text-sm px-5 py-2.5 rounded-full bg-[var(--gold)] text-[var(--olive-deep)] font-medium hover:bg-[var(--gold-deep)] hover:text-cream transition">
           Anunciar imóvel
-        </button></div></header>;
+        </Link></div></header>;
 }
 function Hero() {
   return <section className="relative h-[92vh] min-h-[640px] w-full overflow-hidden"><img
