@@ -1,0 +1,2021 @@
+
+
+===== aulas/7-Single Page Applications com React.pdf =====
+
+l.bertholdo@ifsp.edu.br
+Desenvolvimento Web 2
+Aula 7
+Single Page Applications com React
+
+-- 1 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Single Page Application
+• Framework React
+• JSX – JavaScript XML
+• Ferramentas de Desenvolvimento
+• DOM e React.DOM
+• Criação de Componentes com React
+• Ciclo de Vida dos Componentes
+Conteúdo
+
+-- 2 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Não é de hoje que a experiência de usuário passou a ser
+uma preocupação para as empresas que fornecem serviços web.
+• No entanto, ainda existem usuários perdendo tempo esperando uma
+página ser recarregada cada vez que uma nova informação é solicitada.
+• Muitas vezes, essa lentidão ocorre porque a página requisitada é
+recuperada do servidor e seu conteúdo é inteiramente carregado no
+navegador.
+• Uma solução para esse problema, bastante considerada atualmente no
+desenvolvimento web, é utilizar o conceito de Single Page Application
+(SPA), ou aplicação de página única.
+Single Page Application
+Single Page Application (SPA) é uma aplicação web que interage com o usuário atualizando
+dinamicamente partes e dados da página, sem a necessidade de recarregar todo o conteúdo
+durante seu uso, fazendo com que a aplicação responda de forma mais eficiente ao usuário.
+
+-- 3 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• O conceito de SPA foi lançado no início dos anos 2000
+e propôs uma nova maneira de projetar páginas web.
+• Em aplicações SPA, o conteúdo exibido no navegador não é uma página
+HTML completa e estática, e sim partes do DOM (Document Object
+Model) que vão se juntando para construir a interface da aplicação.
+• Uma vez que a página inicial é carregada, todos os recursos necessários
+para criar e exibir um novo conteúdo já estão na interface do usuário,
+que é a responsável por controlar as transições dos conteúdos na página.
+Single Page Application
+Em uma SPA, toda nova atualização é processada localmente no navegador e anexada
+dinamicamente ao DOM por meio de JavaScript, e, quando necessário, o servidor envia
+apenas os dados brutos requisitados, geralmente em formato JSON. Isso torna o processo
+de exibição da página mais rápido, pois o servidor passa a ter menos processos para
+executar e há menos tráfego na rede ao realizar trocas de dados entre cliente e servidor.
+
+-- 4 of 29 --
+
+l.bertholdo@ifsp.edu.br
+Single Page Application
+Diferentemente das aplicações web
+tradicionais, que precisam renderizar todos
+os elementos (barra de navegação, textos,
+rodapés, anúncios etc) sempre que uma
+página é solicitada, a SPA carrega o novo
+conteúdo na página sem precisar
+recarregar todos os seus outros elementos.
+Isso é possível porque a camada de
+apresentação do website é gerenciada pelo
+navegador e não pelo servidor.
+Fonte: TORRES, 2023.
+
+-- 5 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Devido ao ganho de performance, com o tempo, as aplicações SPA se
+tornaram cada vez mais populares. Para auxiliar na criação desse tipo de
+aplicação, surgiram diversos frameworks baseados em JavaScript, entre
+eles: o Backbone, o Angular, o Vue e o React.
+Single Page Application
+O Angular, lançado pelo Google em 2010, foi outro framework JavaScript pioneiro. Ele teve um
+impacto significativo no cenário do desenvolvimento web, pois introduziu recursos inovadores, cujas
+influências podem ser vistas nas bibliotecas que surgiram mais tarde, incluindo o React.
+O Backbone, desenvolvido no início de 2010, foi uma das primeiras soluções para os problemas
+existentes antes do surgimento do React, entre eles a reutilização de código e a testabilidade. Era uma
+solução elegantemente simples: uma biblioteca que fornecia uma maneira de criar “modelos” e
+“views”, a partir de uma abordagem própria do padrão de arquitetura MVC (Model View Controller).
+O Vue, desenvolvido em 2014 durante um dos projetos do Google Creative Labs, permite criar
+interfaces de usuário e aplicações web SPA. É considerado um framework “progressivo”, pois pode ser
+utilizado em partes de uma aplicação existente ou para criar, do zero, uma aplicação completa.
+
+-- 6 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Atualmente, um dos frameworks mais populares usados para o
+desenvolvimento de aplicações SPA é o React, também chamado de
+React.js ou ReactJS.
+• React é uma biblioteca JavaScript open source criada pelo Facebook
+em 2013. É utilizada no desenvolvimento front-end para simplificar e
+agilizar a tarefa de construção de interfaces de usuário interativas e de
+alto desempenho.
+• Atualmente, o React é mantido pela Meta, e também por uma enorme
+comunidade de desenvolvedores pelo mundo. Sua documentação
+oficial encontra-se no site https://react.dev/.
+Framework React
+Em 2015, o Facebook lançou também a biblioteca React Native, para criação de
+aplicações móveis que utilizam as funcionalidades nativas das plataformas iOS e Android.
+
+-- 7 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Usar o React para simplesmente criar e renderizar a marcação HTML
+de uma SPA não é a principal vantagem desta biblioteca. O verdadeiro
+ganho está no dinamismo e na performance da aplicação ao usá-la.
+• Dada a natureza da JavaScript, qualquer modificação, por mais simples
+que seja, propaga-se por toda a estrutura da árvore DOM, podendo
+causar desde pequenas instabilidades até travamentos da página.
+• Para entregar uma experiência de usuário melhor, criar aplicações de
+alta performance e rápida renderização, o React foi projetado para
+trabalhar com o DOM Virtual, uma abstração da árvore DOM.
+Todas as atualizações na interface são aplicadas e processadas no
+DOM Virtual e, apenas depois, são aplicadas em pontos específicos da
+árvore DOM, sem interferir com o restante da árvore do documento.
+Framework React
+
+-- 8 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• React usa uma sintaxe muito simples e clara denominada
+JSX, uma extensão de sintaxe para JavaScript que simplifica a criação
+de componentes e facilita a escrita de JavaScript.
+• A JSX define cada componente como uma unidade independente e
+mínima que compõe a interface. Isso acelera o processo de desenvol-
+vimento e manutenção, pois os componentes gerados são reusáveis.
+• Arquivos contendo sintaxe JSX devem ser gravados com extensão js,
+ou, opcionalmente, jsx, pois são arquivos JavaScript.
+JSX – JavaScript XML
+React usa o transpiler Babel para fazer a “tradução” (transpilação) de JSX
+para JavaScript, o qual já vem configurado e pronto para uso na biblioteca.
+
+-- 9 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Sintaxe JavaScript para criar um elemento <h1>:
+• Sintaxe JSX para criar um elemento <h1>:
+• Sintaxe JSX para inserção de atributos em elementos HTML:
+JSX – JavaScript XML
+let elemento = document.createElement("h1");
+let titulo = document.createTextNode("Livro Sapiens");
+const resultado = elemento.appendChild(titulo);
+Resultado: <h1>Livro Sapiens</h1>
+const resultado = <h1>Livro Sapiens</h1>;
+Resultado: <h1>Livro Sapiens</h1>
+let meuId = "topo";
+const elemento = <div id = { meuId }>Cabeçalho</div>;
+Resultado: <div id="topo">Cabeçalho</div>
+
+-- 10 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Em JSX, todas as tags devem ser fechadas, ou com a tag de fechamento
+tradicional (<div></div>, <p></p>), ou com a barra da tag de fechamento
+automático (<div />, <p />), que inclui tags autofechadas (<br />, <img />).
+• Nomes de atributos HTML devem seguir a sintaxe camelCase. Ex.:
+colSpan, onClick, onSubmit.
+• Além disso, os atributos HTML class e for devem ser escritos className
+e htmlFor, pois todas as palavras reservadas da JavaScript têm sua
+sintaxe modificada em JSX.
+• Pode-se inserir qualquer expressão JavaScript na sintaxe JSX, desde que
+seja envolvida por chaves. Ex.: { expressão JavaScript }.
+JSX – JavaScript XML
+A sintaxe JSX não aceita declarações JavaScript entre as chaves, somente
+expressões. Expressões retornam um valor (por exemplo: x + 3) e
+declarações executam uma ação (por exemplo: um bloco if-else).
+
+-- 11 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Em JSX, a aplicação de estilos inline pode ser feita de duas formas:
+• Para inserir comentários no código JSX, use as sintaxes
+mostradas ao lado: “//” para comentários de uma linha
+e “/**/” para blocos de comentários. Observe que os
+comentários também devem ser envolvidos por chaves.
+JSX – JavaScript XML
+<p style = { { color:"red", fontSize:"28px", textTransform:"uppercase" } }>
+Texto estilizado inline
+</p>
+let estilosInline = {
+color:"red",
+fontSize:"28px",
+textTransform:"uppercase"
+}
+<p style = { estilosInline }>Texto estilizado inline</p>
+Definindo e aplicando um objeto contendo estilização inline (diretamente):
+Definindo e aplicando um objeto contendo estilização inline (por referência):
+Em JSX, propriedades CSS com mais de uma palavra devem
+ser escritas com sintaxe camelCase. Ex.: backgroundColor. Já
+os valores das propriedades devem ser definidos entre aspas.
+{ /*
+Comentários
+Comentários
+*/ }
+{
+// Comentário
+}
+
+-- 12 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Além do Visual Studio Code, para usar o React, será preciso instalar a
+ferramenta NodeJS, disponínel em https://nodejs.org/en/download.
+Ferramentas de Desenvolvimento
+Gerenciador de pacotes é uma ferramenta
+que visa facilitar o uso de bibliotecas durante
+o desenvolvimento. O NPM permite criar uma
+estrutura inicial de pastas e arquivos para
+uma aplicação, além de instalar, desinstalar e
+atualizar bibliotecas a serem usadas por ela.
+NodeJS é um ambiente de execução de código aberto e
+multiplataforma que permite aos desenvolvedores
+executar códigos JavaScript fora de um navegador web.
+Faça download da versão LTS (Long-Term Support),
+execute o instalador e siga o passo a passo de
+instalação. Junto com o NodeJS vem o gerenciador de
+pacotes NPM (Node Package Manager).
+
+-- 13 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• O DOM (Document Object Model) é um modelo de interface genérico
+que possibilita a programas e scripts acessar e modificar os conteúdos
+e a estrutura de um documento.
+• O exemplo a seguir usa o DOM para criar marcação HTML em um
+documento e serve de base para entender o funcionamento do React.
+DOM e React.DOM
+• createElement: Cria o elemento <h1>.
+• setAttribute: Associa o atributo/valor
+class=“cabecalho” ao elemento <h1>.
+• createTextNode: Cria um nó de texto.
+• appendChild: Insere um nó de texto
+no elemento <h1>. Em seguida, insere
+o elemento <h1> no elemento <div>.
+Marcação
+HTML gerada
+pelo script
+
+-- 14 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Agora, vamos gerar a mesma marcação HTML com uso de React:
+Para usar o React, sem um gerenciador de pacotes, é preciso atrelar ao documento os scripts
+react e react-dom, localizados em um servidor CDN React, por exemplo: https://unpkg.com/.
+Para isso, basta criar dois links na seção head do documento referenciando os scripts.
+Buscar uma biblioteca em um servidor CDN (Content Delivery Network) pode ser vantajoso,
+pois, uma vez carregada, a biblioteca fica no cache do navegador. Por outro lado, buscar
+uma biblioteca no ambiente local sempre requer acesso ao servidor da aplicação.
+O resultado é exatamente o
+mesmo do exemplo anterior.
+DOM e React.DOM
+
+-- 15 of 29 --
+
+l.bertholdo@ifsp.edu.br
+DOM e React.DOM
+O método creatElement do React, usado para criar marcação HTML, admite três parâmetros:
+1) Elemento HTML a ser criado, 2) Objeto JavaScript que define um ou mais atributos para o
+elemento {atributo1: "valor1", atributo2: "valor2", ...} e 3) Conteúdo do elemento.
+Se não houver atributos a definir para o elemento, o 2º parâmetro deverá ser vazio {} ou null.
+Já o 3º parâmetro poderá ser vazio, um conteúdo textual (nó de texto do elemento) ou até
+mesmo outro elemento HTML criado usando a mesma sintaxe, resultando no aninhamento de
+elementos em dois níveis, o que pode ser estendido a tantos níveis quanto forem necessários.
+Note que foi usado className para definir o atributo HTML class, já que class é
+uma palavra reservada da JavaScript. Ao criar a marcação HTML, o mecanismo
+interno do React se encarrega de transformar className em class.
+
+-- 16 of 29 --
+
+l.bertholdo@ifsp.edu.br
+DOM e React.DOM
+O método render do React destina-se a injetar no DOM a marcação HTML criada.
+Ele admite dois parâmetros: 1) Marcação HTML (<h1> criado com o método
+createElement) e 2) Elemento em que a marcação HTML será inserida (<div>).
+Usar JavaScript para criar e injetar marcação HTML no DOM é uma
+tarefa possível desde os primórdios da linguagem. No entanto, React nos
+fornece uma série de funcionalidades que simplificam esse trabalho.
+
+-- 17 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Os componentes fazem parte da essência da filosofia do React, pois
+permitem dividir a interface do usuário em partes independentes e
+reutilizáveis, para que se possa pensar em cada parte isoladamente.
+• Conceitualmente, os componentes são funções JavaScript, que
+aceitam propriedades como parâmetros e retornam elementos React,
+os quais descrevem o que deve ser mostrado na tela.
+• É possível definir um componente React de duas formas:
+Criação de Componentes com React
+Usando uma função JavaScript
+(componente funcional) com a
+sintaxe ES5 ou ES6 (arrow function).
+Ou usando uma classe da ES6
+(componente do tipo classe).
+Os nomes de componentes devem, obrigatoria-
+mente, seguir a sintaxe PascalCase. Por exemplo:
+Saudacao, CorpoTabela, RodapeTabela.
+
+-- 18 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• O exemplo a seguir mostra como usar React para criar a marcação HTML
+de uma página Web completa, constituída por quatro componentes:
+cabeçalho, coluna de navegação, coluna de conteúdo principal e rodapé.
+Criação de Componentes com React
+As linhas de texto renderizadas na página
+serão, na verdade, componentes representados
+por funções JavaScript, respectivamente
+Header, Navegacao, Principal e Footer.
+
+-- 19 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• O código a seguir usa as funções Header, Navegacao, Principal e Footer
+para criar e injetar no DOM cada um dos componentes da página Web:
+Criação de Componentes com React
+Embora tenha sido usada a sintaxe JavaScript tradicional
+(ES5) para escrever as funções, uma opção preferível e mais
+usada atualmente é a sintaxe ES6 com arrow functions.
+Cria a tag <header> com um <h1> dentro.
+Injeta a marcação criada no <div id=“areaCabecalho”>.
+
+-- 20 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• No exemplo anterior, criamos e injetamos componentes React no DOM
+isoladamente. Porém, podemos criar um componente-pai para juntar os
+quatro componentes e injetá-los com uma única instrução.
+Criação de Componentes com React
+O componente App agrupa os componentes criados Header, Navegacao, Principal
+e Footer. Ao final, todos são injetados no DOM da página de uma só vez.
+
+-- 21 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Observe que o primeiro parâmetro do método createElement recebe o
+valor React.Fragment, em vez de um elemento HTML a ser criado.
+• Isso acontece porque, nesse código, o componente App será injetado
+no <div id="tudo">, sendo desnecessário criar outro elemento <div>
+para inserir os quatro componentes nele. Por exemplo:
+Criação de Componentes com React
+Isso serviria apenas para criar um <div class=“app”>
+dentro do <div class=“tudo”>.
+Portanto, o elemento React.Fragment serve apenas para informar o 1º parâmetro do método
+createElement, que é obrigatório, mas não define nenhum elemento HTML para ser criado.
+Note que, como nenhum elemento é criado, o 2º parâmetro de método (atributos) fica vazio.
+
+-- 22 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• O nascimento de um componente ocorre quando ele é chamado para
+renderização e a morte quando ele é removido da tela. No entanto, o
+ciclo de vida completo de um componente divide-se em quatro fases:
+• Cada uma das fases possui métodos que se destinam a executar tarefas
+no momento mais apropriado da vida do componente.
+• Muitos deles raramente são usados, outros são usados esporadica-
+mente e outros são bastante usados.
+Ciclo de Vida dos Componentes
+Initializing: Fase do nascimento
+Mounting: Fase da montagem
+Updating: Fase de atualizações
+Unmounting: Fase da desmontagem
+
+-- 23 of 29 --
+
+l.bertholdo@ifsp.edu.br
+Ciclo de Vida dos Componentes
+Fonte: https://aravishack.medium.com/react-js-life-cycle-of-components-6267eb79b564
+
+-- 24 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Nessa fase o componente está sendo inicializado e configurado para
+ser renderizado.
+• Apenas o método getDerivedStateFromProps() pode ser usado nessa
+fase. Ele admite dois parâmetros, props e state, que são controlados
+automaticamente pelo React.
+• Embora esteja disponível, a própria documentação do React incentiva
+o desenvolvedor a não usar esse método.
+Initializing
+static getDerivedStateFromProps(props, state) { }
+
+-- 25 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• Na fase de montagem ocorre a renderização do componente. Os dois
+métodos desta fase são usados com frequência:
+• render(): Como vimos, esse método retorna um elemento React a ser
+carregado pelo componente. Ele é chamado sempre que o componente
+é carregado para renderização ou quando há alguma atualização.
+• componentDidMount(): Esse método é chamado imediatamente após
+o método render(), ou seja, logo após ter ocorrido a renderização do
+componente.
+Mounting
+A chamada do método componentDidMount() é o momento ideal para execução de
+scripts que bloqueiam a renderização da página, pois, como a página já está renderizada,
+este bloqueio não ocorre. O exemplo clássico de uso desse método é para chamadas a
+APIs que retornam dados, as quais podem bloquear a renderização.
+
+-- 26 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• A fase de atualizações é disparada sempre que o estado de um
+componente muda, o que resulta em uma nova chamada do método
+render() e na chamada do método componentDidUpdate(), logo
+depois da execução de render().
+• Há também outros métodos, usados menos frequentemente nesta fase:
+Updating
+Métodos Descrição
+getDerivedState
+FromProps()
+Executado antes da renderização das atualizações do componente.
+shouldComponent
+Update()
+Executado para verificar se os valores atualizados do componente devem ser
+renderizados novamente. Pode ser bastante útil para otimizar performance
+em determinados casos quando ocorrem atualizações constantes.
+getSnapshotBefore
+Update()
+Executado antes de uma re-renderização do componente causada por
+mudança. Permite a coleta de informações do DOM antes da atualização do
+componente, as quais poderão, por exemplo, ser passadas como parâmetros
+para o método componentDidUpdade().
+
+-- 27 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• A fase da desmontagem do componente possui apenas o método
+componentWillUnmount().
+• Ele é executado imediatamente antes de o componente ser removido
+do DOM.
+• Pode ser útil em alguns casos em que haja necessidade de limpar a
+memória removendo funcionalidades tais como timers e listeners de
+eventos.
+Unmounting
+
+-- 28 of 29 --
+
+l.bertholdo@ifsp.edu.br
+• KUMAR, Tejas. React Fluente: Crie aplicações web rápidas, eficazes e
+intuitivas. São Paulo: Editora Novatec, 2024.
+• SILVA, Maurício S. React: Aprenda Praticando. São Paulo: Editora
+Novatec, 2021.
+• TORRES, Fernando E. Single Page Application. São Paulo: Editora Senac,
+2023.
+Referências
+
+-- 29 of 29 --
+
+
+
+===== aulas/8-Single Page Applications com React.pdf =====
+
+l.bertholdo@ifsp.edu.br
+Desenvolvimento Web 2
+Aula 8
+Single Page Applications com React
+
+-- 1 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Criando uma Aplicação React
+• Estrutura de uma Aplicação React
+• Exemplo – Tabela de Livros
+Conteúdo
+
+-- 2 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• O React possui bibliotecas e módulos auxiliares, como o NodeJS e o
+NPM (Node Package Manager), que permitem estruturar as pastas,
+criar uma página inicial padrão customizável, bem como rodar um
+servidor local para renderizar a aplicação com apenas dois comandos.
+• O ponto de partida para criar uma aplicação é o comando create-react-
+app nome-aplicacao, sendo nome-aplicacao a pasta raiz da aplicação.
+• Criando uma nova aplicação React:
+1. Crie uma pasta denominada exemplo-react para armazenar localmente a
+aplicação tabela-livros a ser desenvolvida.
+2. Abra o prompt de comando do sistema operacional (como administrador)
+na pasta criada e execute o comando:
+Criando uma Aplicação React
+npx create-react-app tabela-livros
+
+-- 3 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Criando uma nova aplicação React (continuação):
+3. Em seguida, execute os dois comandos sugeridos:
+Criando uma Aplicação React
+Esse comando demora para ser executado, mas quando
+finalizado cria uma estrutura padrão para aplicações
+React em uma pasta denominada tabela-livros. Ao
+final da execução, será mostrada a mensagem ao lado.
+O comando npm start inicia o servidor local na porta 3000
+(localhost:3000). O navegador padrão é automaticamente
+aberto e exibe a página padrão da aplicação pronta para ser
+personalizada. Se o navegador não abrir automaticamente,
+abra-o e acesse localhost:3000. Para parar o servidor, acione
+as teclas Ctrl+C no prompt de comando.
+
+-- 4 of 27 --
+
+l.bertholdo@ifsp.edu.br
+Estrutura de uma Aplicação React
+Estrutura padrão de pastas e arquivos da aplicação
+React criada com o comando create-react-app
+Contém o arquivo index.html cuja marcação define o container
+da aplicação localizado na linha <div id="root"></div>.
+Contém todos os módulos e funcionalidades necessárias do React, além de
+bibliotecas auxiliares que podem ser instaladas para uma aplicação específica.
+Contém os arquivos nos quais o desenvolvedor mais costuma trabalhar.
+O arquivo App.js define o componente-pai, com toda a marcação HTML
+da aplicação a ser injetada dentro do elemento <div id="root">.
+Contém um objeto JSON que descreve a configuração inicial necessária para a
+página padrão da aplicação funcionar, além dos nomes de todas dependências,
+módulos e suas versões, necessários para fazer a aplicação funcionar.
+Contém o script que injeta/renderiza o componente App
+no elemento <div id="root"> do arquivo index.html.
+
+-- 5 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Os arquivos App.css e index.css contém as regras de estilo CSS
+da aplicação. Para testá-las, no Visual Studio Code, faça as alterações a
+seguir, salve e observe o resultado no navegador.
+Estrutura de uma Aplicação React
+Assim que as modificações são salvas, o efeito é imediato na
+página, sem necessidade de recarregá-la. Trata-se de uma
+das funcionalidades de React: atualizar a página somente no
+local em que houve a alteração sem ter de recarregar tudo.
+App.cs index.css App.js
+Altere também o
+texto do link no
+arquivo App.js.
+
+-- 6 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• O projeto de exemplo é uma tabela de livros na qual constam alguns
+dados sobre livros, um botão para excluir cada livro, setas para
+ordenar as linhas da tabela pelo título do livro, além de um campo
+para totalizar os livros exibidos.
+Exemplo – Tabela de Livros
+
+-- 7 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• O ponto de partida do projeto é a estrutura criada anteriormente.
+Portanto, o primeiro passo é editar alguns arquivos que serão usados
+na aplicação.
+Editando Arquivos
+index.html
+A tag <noscript> define um conteúdo alternativo
+a ser exibido em navegadores em que a execução
+de scripts está desabilitada ou indisponível.
+Remova todos os comentários
+e faça as alterações indicadas.
+
+-- 8 of 27 --
+
+l.bertholdo@ifsp.edu.br
+Editando Arquivos
+Remova todos os comentários.
+Remova essas linhas:
+Substitua o conteúdo do return
+por este:
+Apague este arquivo.
+Remova todo o conteúdo.
+Após as modificações, a aplicação será exibida
+sem qualquer estilização e com o texto “Tabela de
+Livros” do elemento <h1> em um fundo branco.
+
+-- 9 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• A tabela será constituída por um topo contendo o título “Tabela de
+Livros”, um corpo com quatro colunas contendo os dados dos livros e
+um rodapé contendo a quantidade de livros da tabela.
+• Para isso, serão criados três componentes, um para cada seção da
+tabela. Esse é um padrão elementar ao usar React: criar pequenos
+componentes para formar uma peça da interface.
+• Na pasta src do projeto, crie a subpasta components.
+Na subpasta criada, defina um arquivo JavaScript para
+cada componente e implemente seus códigos.
+• O componente App é o container geral da aplicação e responsável por
+injetar toda a marcação HTML no DOM. Por isso, também será preciso
+inserir os três componentes da tabela dentro do componente-pai App,
+o qual é definido no arquivo App.js.
+Criando a Tabela
+
+-- 10 of 27 --
+
+l.bertholdo@ifsp.edu.br
+Criando a Tabela
+TabelaHead.js
+TabelaFoot.js
+TabelaBody.js
+App.js
+
+-- 11 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Tabela renderizada
+Criando a Tabela
+
+-- 12 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Os dados exibidos na única linha da tabela foram inseridos diretamente
+no código do componente TabelaBody. Para deixar este componente
+flexível, tais dados passarão a ser armazenados no seu componente-pai
+App, que então os enviará ao componente TabelaBody.
+• Até a versão 16.7, o fluxo de dados do React ocorria em um só sentido,
+com os dados sendo passados do componente-pai para os componentes
+descendentes. Além disso, também não era possível passar dados com uso
+de componentes funcionais, apenas com componentes do tipo classe.
+• A partir da versão 16.8, foi criada uma nova funcionalidade no React,
+chamada hooks, que permite passar dados com uso de componentes
+funcionais em fluxos de dados multidirecionais (um componente pode
+passar dados para componentes descendentes, ascendentes e irmãos).
+Enviando Dados para a Tabela
+
+-- 13 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• O componente App é o container geral da aplicação e,
+por padrão, é um componente do tipo funcional.
+• No exemplo, será usada a forma tradicional (sem uso de hooks) para passar
+dados do componente App para seus filhos TabelaBody e TabelaFoot. Para
+isso, vamos transformá-lo em um componente do tipo classe.
+Enviando Dados para a Tabela
+Para trabalhar com classes em React, é preciso
+importar Component, que é a classe base para
+definir componentes como classes JavaScript.
+Sintaxe padrão para declarar uma classe
+em React:
+class nome_classe extends Component
+Uso do método React render()
+para retornar a tabela.
+App.js
+
+-- 14 of 27 --
+
+l.bertholdo@ifsp.edu.br
+Enviando Dados
+para a Tabela
+Armazena os dados de três
+livros no objeto state.
+• Para armazenar dados em um
+componente-pai, o React
+fornece o objeto state.
+Passa os dados dos três livros para o
+componente TabelaBody. A sintaxe para a
+passagem dos dados é composta por um
+atributo (livros) e um valor (this.state.livros).
+O nome do atributo é de livre escolha e o
+valor deve ser escrito entre chaves.
+App.js
+
+-- 15 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• O componente TabelaBody também precisa ser modificado para
+receber os dados do componente-pai App.
+Enviando Dados para a Tabela
+Agora, o componente recebe
+os dados no parâmetro props
+da função que o define. props.livros, objeto que contém os dados vindos
+do componente App, invoca o método map().
+Este método faz o mapeamento de um array ou
+objeto de dados e gera código HTML. Aqui o
+método recebe uma função callback que retorna
+cada objeto livro existente em props.livros.
+Essa sintaxe insere o id, o título
+e o autor de cada livro nas
+respectivas células da tabela.
+TabelaBody.js
+
+-- 16 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Para definir um estilo para a tabela, é preciso incluir as regras CSS no
+arquivo index.css da aplicação.
+Definindo o Estilo da Tabela
+
+-- 17 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Também é necessário incluir a quantidade de livros no rodapé da tabela.
+Definindo a Quantidade de Livros
+O componente TabelaFoot
+recebe a quantidade de
+livros, como o parâmetro
+props da função, e exibe
+esta quantidade no rodapé.
+TabelaFoot.js
+App.js A propriedade length retorna a
+quantidade de livros do array
+livros. Essa quantidade, por
+sua vez, será passada para o
+componente TabelaFoot, que
+exibirá a quantidade.
+
+-- 18 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Em uma aplicação real, os dados da tabela seriam recuperados de um
+banco de dados e não de um array inserido no componente App.
+• Para simular essa situação, será pressuposto que o banco de dados da
+aplicação fornece uma API, a qual disponibiliza dados em formato JSON.
+• Para simular os dados da API, crie a pasta
+api no diretório public do projeto. Depois,
+crie o arquivo livros.json na pasta api com
+o conteúdo ao lado.
+Definindo uma Fonte de Dados
+Para carregar as linhas da tabela de forma dinâmica,
+serão escritos scripts para consulta aos dados da API e
+para organização dos valores recuperados nas linhas
+da tabela. Para isso, será usada uma funcionalidade
+nativa dos navegadores denominada API Fetch.
+
+-- 19 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Para que a aplicação possa recuperar os dados do arquivo JSON, é
+preciso adequar o componente App.
+Definindo uma Fonte de Dados
+Os dados do objeto state devem ser removidos.
+É preciso incluir o método componentDid
+Mount(). Este método é chamado
+imediatamente após o método render(),
+ou seja, logo após ter ocorrido a
+renderização do componente.
+O método fetch(url), nativo do navegador,
+faz a consulta ao arquivo JSON e retorna
+uma promise.
+Os métodos then() tentam resolver a
+promise. Ao resolvê-la, os dados do
+arquivo JSON são recebidos e, em seguida,
+objeto state é populado com estes dados.
+O método catch() faz o tratamento em caso
+de erro na requisição. Em uma aplicação real,
+poderia ser definido um script para renderizar
+uma mensagem de erro ao usuário.
+O método finally() sempre é
+executado e deve ser implementado
+conforme a necessidade do projeto.
+Ao renderizar a página, a tabela deverá ter a mesma aparência e os mesmos dados.
+
+-- 20 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• A seguir, será implementado o botão Excluir, para que, ao clicar nele, a linha
+correspondente na tabela seja apagada.
+• Um dos fundamentos do React é que os dados só podem ser alterados pelo
+componente onde esses dados residem. Sendo assim, como é possível
+apagar uma linha da tabela que está no componente TabelaBody se os
+dados residem no componente App?
+• O React torna isso possível por meio de um mecanismo que consiste em
+comunicar e manipular eventos. No caso da exclusão, ele funcionaria da
+seguinte forma:
+Implementando o Botão Excluir
+Componente-
+pai que
+contém os
+dados (App)
+Componente-
+filho que deseja
+manipular os
+dados
+(TabelaBody)
+Passa a função para excluir dados
+Recebe a função no objeto props e atrela o disparo
+desta função a um evento (clique no botão Excluir).
+Comunica que disparou a função (evento), que é então
+manipulada no componente-pai, onde os dados são excluídos.
+Envia os dados ao componente-filho, que tem sua
+renderização atualizada com os novos dados.
+
+-- 21 of 27 --
+
+l.bertholdo@ifsp.edu.br
+Implementando o Botão Excluir
+No componente App, que armazena
+os dados, deve ser criada a função
+handleExcluirLinha. Ela será
+executada quando o botão Excluir do
+componente TabelaBody for clicado.
+App.js
+Em seguida, é preciso passar a função criada para
+o componente TabelaBody, da mesma maneira
+que foi passado o array livros anteriormente.
+TabelaBody.js
+No componente TabelaBody, capture o clique do
+botão Excluir e atrele este evento à execução da
+função definida no componente App (passada
+para esse componente como props).
+Agora, ao clicar em um dos botões Excluir, deverá aparecer o texto “Botão clicado” no
+console do navegador, indicando que a comunicação entre os componentes foi estabelecida.
+
+-- 22 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• É preciso que, ao clicar em um botão Excluir, o script identifique a linha
+correspondente e apague somente ela.
+• As linhas da tabela podem ser identificadas pelo ISBN do livro, cujo nome
+no arquivo JSON é id. Esse id será usado como parâmetro da função de
+exclusão, para apagar a linha onde se encontra o botão clicado.
+Implementando o Botão Excluir
+App.js
+Agora, ao clicar em um dos botões Excluir, a linha onde se encontra o botão
+será apagada e a quantidade de linhas será atualizada no rodapé da tabela.
+Altere a função handleExcluirLinha, para que ela receba como parâmetro
+o id da linha que contém o botão clicado. O método filter() é aplicado no
+objeto state que contém os dados de todos os livros. O filtro cria um
+novo objeto contendo todos os livros, exceto aquele cujo id é o da linha
+onde o botão foi clicado. Esse objeto é definido como o novo objeto
+state, provocando a atualização da tabela sem a linha apagada.TabelaBody.js
+No botão Excluir, passe o id do livro, como
+parâmetro da função que apaga a linha.
+
+-- 23 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• A última funcionalidade a ser implementada é a ordenação das linhas
+da tabela em ordem alfabética pelo título do livro.
+Implementando a Ordenação da Tabela
+TabelaHead.js É preciso modificar o componente TabelaHead
+para inserir duas setinhas ao lado da palavra
+Título no cabeçalho da tabela.
+Esse container <div> cria o contexto para
+posicionar os dois elementos <div> filhos,
+ou seja, as setinhas (uma em cima da outra).
+A setinha para cima é obtida com a codificação de
+caracteres &#129093. E a setinha para baixo com
+a codificação &#129095. Com isso, as setinhas
+serão renderizadas embaixo da palavra Título.
+No arquivo index.css, insira essas duas regras CSS.
+A 1ª regra posiciona as setinhas ao lado da palavra
+Título. E a 2ª faz com que, ao passar o cursor do
+mouse sobre as setas, ele mude para pointer.
+index.css
+
+-- 24 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• Ao clicar na seta para cima, os livros serão ordenados pelo título em
+ordem alfabética crescente. E ao clicar na seta para baixo, a ordenação
+será em ordem alfabética decrescente. Para isso, será novamente
+aplicado o mecanismo do React de comunicar e manipular eventos.
+Implementando a Ordenação da Tabela
+No componente App, logo após o fechamento
+da função handleExcluirLinha, inclua os
+seguintes manipuladores de eventos, que são
+as funções JavaScript para ordenar em ordem
+alfabética crescente e decrescente.
+Passe os manipuladores de evento para o
+componente TabelaHead usando os atributos
+ordenarCrescente e ordenarDecrescente.
+App.js
+
+-- 25 of 27 --
+
+l.bertholdo@ifsp.edu.br
+Implementando a Ordenação da Tabela
+No componente TabelaHead, capture o clique
+nas setinhas e atrele estes eventos à execução
+das funções definidas no componente App
+(passadas para esse componente como props).
+TabelaHead.js
+Ao armazenar ou compartilhar um
+projeto React, é importante não manter
+o enorme diretório node_modules do
+projeto. Embora ele contenha todos os
+módulos e funcionalidades necessários
+para utilizar o React, este diretório pode
+ser facilmente recuperado rodando o
+comando npm install na pasta do
+projeto. Finalizada a instalação do
+diretório, basta executar o comando
+npm start para iniciar a aplicação.
+
+-- 26 of 27 --
+
+l.bertholdo@ifsp.edu.br
+• SILVA, Maurício S. React: Aprenda Praticando. São Paulo: Editora
+Novatec, 2021.
+• TORRES, Fernando E. Single Page Application. São Paulo: Editora Senac,
+2023.
+Referências
+
+-- 27 of 27 --
+
+
+
+===== aulas/9-Single Page Applications com React.pdf =====
+
+l.bertholdo@ifsp.edu.br
+Desenvolvimento Web 2
+Aula 9
+Single Page Applications com React
+
+-- 1 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Exemplo – Website para Livraria
+• Criando a Aplicação React
+• Editando Arquivos
+• Definindo Mídias e Estilos do Site
+• Definindo Topo, Área Principal e Rodapé
+• Criando os Componentes Filhos
+• Componente Logo
+• Componente Navegacao
+• Componente Topo
+• Componentes Principal e Home
+• Componente Rodape
+• Resultado Final
+Conteúdo
+
+-- 2 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• O projeto de exemplo cria a marcação HTML inicial e as folhas de
+estilos para as páginas do site de uma livraria.
+• A estrutura do website será constituída de um topo com duas faixas
+(uma para o logotipo da livraria e a outra para o menu de navegação),
+uma área principal para exibir a home page e outras páginas do
+website, além de um rodapé.
+• Posteriormente, serão criados outros componentes, referentes às áreas
+dos livros (história, ciência e literatura), além de componentes para uma
+página de catálogo de livros e para as páginas individuais de cada livro.
+Exemplo – Website para Livraria
+
+-- 3 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Protótipo do Website para Livraria
+Exemplo – Website para Livraria
+Topo
+
+-- 4 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Abra o prompt de comando do sistema operacional (como
+administrador) na pasta exemplo-react e execute o comando:
+• Em seguida, execute os dois comandos a seguir:
+Criando a Aplicação React
+npx create-react-app livraria
+O comando npm start inicia o servidor local
+na porta 3000 (localhost:3000) e o navegador
+padrão é automaticamente aberto para exibir
+a página padrão da aplicação.
+
+-- 5 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Com a estrutura inicial do projeto criada, o primeiro passo é editar
+alguns arquivos que serão usados na aplicação.
+Editando Arquivos
+index.html Remova todos os comentários
+e faça as alterações indicadas.
+
+-- 6 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Editando Arquivos
+Remova todos os comentários.
+Remova essas linhas:
+Substitua o conteúdo do return por este:
+Após as modificações, a página será exibida com os
+textos Topo, Principal e Rodapé, um embaixo do outro,
+renderizados em um fundo branco à esquerda da tela.
+Sempre que um componente retornar mais de um elemento HTML, é obrigatório que
+se crie um elemento container para eles. Essa é a função do elemento <div> acima.
+Sem ele, o navegador exibiria uma mensagem de erro informando que deve ser
+criado um elemento container para os elementos <header>, <main> e <footer>.
+Remova o arquivo App.css,
+pois ele não será necessário.
+
+-- 7 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Nesse exemplo, como o componente retorna um <div> genérico,
+podemos usar o elemento React.Fragment como container.
+• Para declarar somente Fragment, é preciso importar seu respectivo
+módulo da biblioteca React. Em seguida, basta substituir o container
+<div> pelo container <Fragment>.
+Editando Arquivos
+Uma solução ainda mais conveniente é deixar
+as tags <> e </> vazias, já que os mecanismos
+internos do React aceitam essa sintaxe para
+containers. Nesse caso, não há necessidade de
+se importar o módulo Fragment do React.
+
+-- 8 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Definindo Mídias e Estilos do Site
+Copie a pasta imagens disponibilizada
+para dentro da pasta public do projeto.
+Abra a pasta imagens copiada e mova os arquivos favicon.ico, logo192.png
+e logo512.png para dentro da pasta public, em substituição aos arquivos de
+mesmo nome que já se encontram lá. Mantenha a pasta livros e o arquivo
+logo.png na pasta imagens.
+Copie o arquivo index.css disponibilizado para dentro da pasta src do
+projeto, em substituição ao arquivo de mesmo nome que já se encontra lá.
+
+-- 9 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Definindo Topo, Área Principal e Rodapé
+Faça as seguintes alterações
+no arquivo App.js.
+
+-- 10 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Como vimos, o componente App será responsável por gerar toda a
+marcação HTML do site. Logo, é preciso criar componentes menores,
+cada um responsável por uma parte específica do site.
+• Serão criados um componente Topo (contendo os componentes Logo e
+Navegacao), além dos componentes Principal (contendo o componente
+Home) e Rodape.
+Criando os Componentes Filhos
+Na pasta src, crie uma subpasta denominada components.
+O componente-pai App.js será mantido na raiz da aplicação.
+Na pasta components, crie estes seis arquivos
+vazios para os componentes. Obs.: A extensão
+dos arquivos de componentes pode ser .js ou
+.jsx, porém a prática geral é usar a extensão .js.
+
+-- 11 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Sintaxe geral para se criar
+componentes funcionais:
+Criando os Componentes Filhos
+import React from 'react';
+const NomeDoComponente = () => {
+return (
+<>
+...Código JSX...
+</>
+)
+}
+export default NomeDoComponente;
+Para facilitar a criação de componentes, podemos usar
+snippets, templates prontos que agilizam a escrita de código.
+Uma sugestão é instalar no Visual Studio Code a extensão
+ES7 + React/Redux/React-Native snippets. No VS Code, para criar um novo
+componente funcional, usando
+snippets desta extensão, basta digitar
+o atalho rfc no editor de código.
+
+-- 12 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Logo
+O logotipo do site é mostrado como imagem de fundo
+em um elemento <h1>, conforme definido na classe logo
+do CSS. O elemento <span> define um texto para o caso
+de a classe não ser encontrada. Essa é uma boa prática
+da linguagem CSS denominada Image Replacement.
+Insira este código no arquivo Logo.js. Declarar o elemento <a> com o atributo href apontando
+para index.html não vai funcionar, pois em React a
+definição de links é baseada em rotas, um conceito que
+não existe em HTML e será apresentado posteriormente.
+Substitua o conteúdo do arquivo App.js
+por este (o componente App passará a ser
+definido por meio de uma arrow function).
+
+-- 13 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Navegacao
+Insira este código no arquivo Navegacao.js. Faça as alterações necessárias
+no arquivo App.js.
+Como agora existe mais de um
+componente filho, é preciso
+usar <> </> como container
+dos dois componentes.
+Dica: Instale a extensão React Developer Tools no navegador para ter acesso a várias
+funcionalidades úteis. Para usá-la, abra a ferramentas do desenvolvedor do
+navegador e procure pelas abas Components e Profiler. A aba Components permite
+inspecionar a estrutura de componentes, valores de props e state, enquanto a aba
+Profiler é usada para analisar o desempenho de renderização dos componentes.
+
+-- 14 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Topo
+Insira este código no arquivo Topo.js.
+Faça as alterações necessárias no arquivo
+App.js. Note que agora, basta referenciar
+o componente Topo, pois ele já reúne os
+componentes Logo e Navegacao.
+Os componentes Logo e Navegacao são reunidos dentro do componente-pai Topo.
+Com a definição da classe CSS topo, agora ambos componentes são estilizados, o
+logo com o fundo cinza claro e a barra de navegação com a cor verde.
+
+-- 15 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando os
+Componentes
+Principal e Home
+Insira este código no arquivo Principal.js.
+Insira este código no
+arquivo Home.js.
+O componente Home é colocado dentro
+do componente-pai Principal, o qual é
+estilizado conforme o arquivo index.css.
+
+-- 16 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando os Componentes Principal e Home
+Faça as alterações necessárias no
+arquivo App.js para referenciar o
+componente Principal, o qual
+contém o componente Home.
+
+-- 17 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Rodape
+Insira este código no arquivo Rodape.js.
+O componente Rodape é estilizado conforme
+os estilos definidos no arquivo index.css.
+Faça as alterações necessárias no
+arquivo App.js para referenciar o
+componente Rodape.
+
+-- 18 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final O resultado final é um website estático
+baseado em componentes React, com
+abas de navegação ainda não funcionais.
+
+-- 19 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• SILVA, Maurício S. React: Aprenda Praticando. São Paulo: Editora
+Novatec, 2021.
+• TORRES, Fernando E. Single Page Application. São Paulo: Editora Senac,
+2023.
+Referências
+
+-- 20 of 20 --
+
+
+
+===== aulas/10-Single Page Applications com React.pdf =====
+
+l.bertholdo@ifsp.edu.br
+Desenvolvimento Web 2
+Aula 10
+Single Page Applications com React
+
+-- 1 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Passagem de Dados com props
+• Atualização de Dados com state
+• Método setState()
+• Rotas
+• Biblioteca React Router
+• Exemplo – Website para Livraria
+• Alterando o Componente Navegacao
+• Alterando os Componentes Logo e Home
+• Criando os Componentes das Áreas
+• Criando os Componentes Catálogo e NotFound
+• Alterando o Componente App
+• Resultado Final
+Conteúdo
+
+-- 2 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Considerando o modelo de fluxo de dados padrão do React, os dados
+armazenados em um componente-pai são passados para seus
+componentes-filhos por meio do objeto props.
+• Como props é somente leitura, os componentes-filhos não podem
+alterar os valores de um objeto props recebido. Se isso for necessário,
+estes componentes devem fazê-lo internamente por meio de suas
+próprias variáveis.
+• No exemplo a seguir, cada dado definido no componente-pai Principal é
+passado como um atributo para o componente-filho Home, que por sua
+vez recupera os valores de cada atributo por meio do objeto props.
+Passagem de Dados com props
+Como o fluxo de dados é unidirecional (um componente-filho não pode passar dados alterados
+para um pai), uma forma de um filho alterar dados de um pai, é fazendo com que filho dispare
+um evento no pai, e este modifique os dados por meio do método setState() do objeto state.
+
+-- 3 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Passagem de Dados com props Home.js
+Principal.js
+Dados definidos
+como variáveis, no
+componente-pai.
+Dados passados para
+o componente-filho
+Home via atributos.
+O componente-filho recebe
+os dados do componente-pai
+em um objeto props como
+parâmetro da arrow function.
+
+-- 4 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Passagem de Dados com props
+Home.js
+Como o objeto props é somente leitura, ao tentar
+alterar o valor de um dado no componente-filho
+Home, será retornado um erro no console.
+Principal.js
+Esse conteúdo passado pode ser acessado no componente-filho
+como a propriedade nativa children do objeto props.
+Home.js
+No exemplo, a passagem de dados para o componente Home foi
+feita com uso de atributos, seguindo a sintaxe geral. Porém,
+também é possível passar dados como conteúdo do componente,
+ou seja, entre as suas tags de abertura de fechamento.
+
+-- 5 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• No exemplo a seguir, os dados dos livros
+serão passados em um array de objetos.
+Home.js
+Principal.js
+O método map() recebe uma função
+callback que retorna cada objeto
+livro existente em props.livros.
+Passagem de Dados com props
+
+-- 6 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Em uma aplicação real, os dados são atualizados em resposta a alguma
+ação do usuário. Em React, a atualização de dados é possível graças ao
+seu objeto state.
+• Por padrão, em React, somente componentes do tipo classe podem
+usar o objeto state para atualizar dados.
+• No entanto, a versão 16.8 do React introduziu a funcionalidade React
+Hooks, que, entre outras melhorias, passou a dar suporte ao objeto
+state em componentes funcionais.
+Atualização de Dados com state
+Em JavaScript, state é um termo genérico para designar um objeto
+destinado a armazenar dados passíveis de serem modificados.
+
+-- 7 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Em React, cada componente possui e gerencia o seu próprio objeto
+state, ao contrário da maioria dos frameworks JavaScript que definem
+um objeto state global para toda a aplicação.
+• O único componente que pode alterar o objeto state é aquele no qual
+o state foi definido, ou seja, o componente “dono” do state. Tentar
+alterar o state de um componente a partir de outro componente (seja
+pai ou filho) resulta em erro.
+• Ao atualizar os dados no seu state, um componente-pai pode passá-los
+para seus componentes-filhos por meio do objeto props. Com isso,
+uma atualização no componente-pai pode ser refletida em todos os
+seus componentes-filhos.
+Atualização de Dados com state
+
+-- 8 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Nesse exemplo, primeiramente os dados são definidos por meio do
+objeto state. E, na sequência, o nome do autor é alterado.
+Método setState()
+Para fazer esta alteração, é preciso modificar
+o objeto state por meio do método setState(),
+declarado em Component. Esse método
+recebe como parâmetro um objeto com os
+dados a serem alterados. Ele é chamado com
+this, que é uma referência a Component.
+A alteração de dados deve ser declarada no
+método componentDidMount(). Esse método é
+chamado na sequência do método render() e
+atualiza a renderização com os dados alterados.
+App.js
+
+-- 9 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Em aplicações React, as rotas são responsáveis por fazer a navegação
+via links funcionar. Para implementá-las, será utilizada a biblioteca
+React Router do React.
+Rotas
+Para exemplificar a implementação de rotas, será retomado o desenvolvi-
+mento do website da Livraria da Subida, cujo menu de navegação não
+está funcional. Nesta etapa, também serão construídas as demais páginas
+que serão acessadas pelos links do menu de navegação.
+
+-- 10 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• A biblioteca React Router oferece os seguintes componentes primários
+para projetar rotas: BrowserRouter, Routes, Route, Link e Navlink.
+Alguns exemplos de sintaxe para importá-los:
+• Os trechos de código que usam as funcionalidades desta biblioteca
+devem ser sempre agrupados no elemento <BrowserRouter>
+</BrowserRouter> ou no seu alias (se houver um).
+• Isso permite que esse container disponibilize as funcionalidades da
+biblioteca React Router para todos os seus componentes descendentes.
+Biblioteca React Router
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+// ou qualquer outra combinação de funcionalidades separadas por vírgula
+Esta sintaxe encurta o nome nativo da funcionalidade BrowserRouter para o
+alias Router. Com isso, é possível simplificar a escrita do código, declarando
+<Router></Router> em vez de <BrowserRouter></BrowserRouter>.
+
+-- 11 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Geralmente, o container <BrowserRouter>, ou seu alias, é colocado no
+início do return do componente-pai App.
+• Isso garante que qualquer código da aplicação que use a biblioteca
+React Router tenha acesso as suas funcionalidades.
+• Todas as funcionalidades da biblioteca React Router mencionadas são
+elementos de marcação JSX, ou seja, são elementos com tags de
+abertura e fechamento, conforme mostrado a seguir:
+Biblioteca React Router
+<BrowserRouter></BrowserRouter>
+<Routes></Routes>
+<Route></Route>
+<Link></Link>
+<NavLink></NavLink>
+
+-- 12 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente Navegacao
+import do elemento <NavLink>
+da biblioteca react-route-dom.
+O elemento <NavLink> é convertido para a tag <a> da marcação HTML.
+O atributo to é convertido para o atributo href da tag <a> do HTML.
+Se necessário, faça a instalação da biblioteca
+no projeto executando o comando npm install
+react-router-dom. Após a instalação, o arquivo
+package.json do projeto é atualizado.
+
+-- 13 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente Navegacao
+O valor do atributo to é uma barra seguida pelo nome de uma página da aplicação,
+exceto para a Home Page que recebe, obrigatoriamente, apenas a barra. O nome
+da página admite parâmetros e também pode ser chamado de slug da URL.
+Ao executar a aplicação, o navegador retornará uma mensagem relacionada à falta do container
+<Router>. Esse erro permanecerá até à última alteração a ser feita no arquivo App.js.
+
+-- 14 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando os Componentes Logo e Home
+Logo.js
+Home.js
+Substitua tag vazia pela tag <main> e remova
+os dois livros inseridos na página Home.
+O elemento <Link> é convertido para a tag
+<a> da marcação HTML, que direciona o
+usuário para a página Home. Como este link
+não pertence ao menu de navegação, usa-
+se o elemento <Link> em vez de <NavLink>.
+
+-- 15 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando os Componentes das Áreas
+Ciencia.js	Historia.js
+Literatura.js
+• Crie estes componentes dentro da pasta src/components do projeto:
+
+-- 16 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando os Componentes Catálogo e NotFound
+Catalogo.js NotFound.js
+Em React, é comum definir um componente
+denominado NotFound, para se criar uma
+página de erro 404 personalizada.
+• Crie estes componentes dentro da pasta src/components do projeto:
+
+-- 17 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente App
+Importação dos componentes
+necessários à renderização
+das páginas da aplicação.
+O componente Router deve ser
+o container geral da aplicação.
+O componente Topo é o primeiro
+a ser inserido na marcação HTML.
+Routes é um container para os componentes
+Route. Ele substitui o componente Principal.
+O componente Route define
+os caminhos das rotas e o
+componente correspondente
+que deve ser renderizado.
+O atributo element é usado para especificar o componente que deve
+ser renderizado quando o caminho da rota (path) for acionado.
+O path “*” é uma referência para qualquer URL indefinida, sendo
+apropriado para direcionar o usuário a uma página de erro 404.
+App.js
+Versão anterior
+
+-- 18 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final O resultado final é um website dinâmico
+baseado em componentes React, com
+abas de navegação funcionais.
+Agora a imagem do logotipo também
+é um link para a Home Page.
+Para visualizar a página de erro 404, tente acessar uma
+página inexistente. Por exemplo: localhost:3000/xyz.
+Os dois links da página de catálogo
+ainda não funcionam.
+Ao navegar pelas páginas, observe na barra de endereços
+o padrão localhost:3000/nome-da-pagina/.
+
+-- 19 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• SILVA, Maurício S. React: Aprenda Praticando. São Paulo: Editora
+Novatec, 2021.
+• TORRES, Fernando E. Single Page Application. São Paulo: Editora Senac,
+2023.
+Referências
+
+-- 20 of 20 --
+
+
+
+===== aulas/11-Single Page Applications com React.pdf =====
+
+l.bertholdo@ifsp.edu.br
+Desenvolvimento Web 2
+Aula 11
+Single Page Applications com React
+
+-- 1 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Conteúdo Dinâmico
+• Arquivos de Dados e Imagens
+• Requisição de Dados
+• Alterando o Componente App
+• Criando os Componentes BuscaLivro e Livro
+• Alterando os Componentes Home, Catalogo, Historia,
+Ciencia e Literatura
+• Resultado Final
+Conteúdo
+
+-- 2 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Os conteúdos dos itens do menu de navegação do website da livraria
+são carregados apenas na área principal, permanecendo as áreas do
+topo e do rodapé fixas, sem recarregamento, seguindo a filosofia de
+desenvolvimento Single Page Application.
+• No entanto, os conteúdos de cada página estão sendo carregados de
+forma estática. O objetivo agora será carregar estes conteúdos de
+forma dinâmica a partir de uma fonte de dados.
+• No exemplo, será pressuposto que o banco de dados da aplicação
+forneceu uma API que, mediante requisições, disponibiliza dados em
+formato JSON para o website.
+Conteúdo Dinâmico
+
+-- 3 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Para simular os dados disponibilizados pela API,
+será criado o arquivo todosLivros.json, que
+armazena os dados de todos os livros da livraria
+em um array de objetos, conforme modelo abaixo:
+Arquivos de Dados e Imagens
+Parâmetro identificador do livro na URL do website. Por exemplo:
+http://localhost:3000/livro/uma-breve-historia-do-mundo
+O arquivo todosLivros.json
+disponibilizado deve ser
+copiado para uma pasta
+chamada api, dentro da
+pasta public do projeto.
+Substitua também o conteúdo da
+pasta imagens pelo conteúdo da
+pasta disponibilizada.
+
+-- 4 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Para que o website possa fazer requisições de dados para a API, instale
+a biblioteca axios e inicie a aplicação:
+• No website atual, os componentes carregam
+apenas o título das páginas e um parágrafo
+simulando seus conteúdos.
+• O próximo passo será alterar esses componentes para que cada um
+deles requisite seus conteúdos à API de dados e injetem estes
+conteúdos na página.
+Requisição de Dados
+npm install axios
+npm start
+A biblioteca axios é uma das muitas bibliotecas
+disponíveis para realizar requisições AJAX a uma API
+de dados. Também é possível dispensar a instalação
+de bibliotecas, usando uma funcionalidade nativa
+dos navegadores modernos denominada API Fetch.
+
+-- 5 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Além de renderizar as páginas de seus componentes descendentes e
+gerenciar as rotas da aplicação, o componente App também será
+responsável por fazer requisições e receber dados da API.
+• Os dados recebidos serão passados para seus componentes
+descendentes, seguindo o modelo padrão de fluxo de dados do React.
+Alterando o Componente App
+O primeiro passo é importar o
+componente BuscaLivro, ainda não
+criado, que será responsável por
+buscar os dados de um livro específico,
+e a biblioteca Axios responsável pelas
+requisições à API de dados.
+
+-- 6 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente App
+Por padrão, o método componentDidMount()
+é síncrono. Para que ele possa lidar com as
+promises retornadas pela biblioteca axios,
+que são assíncronas, ele é declarado com a
+palavra reservada async.
+Os dados vindos da requisição,
+por meio do objeto padrão
+data, são armazenados no
+objeto livros. Em seguida, esse
+objeto é passado para
+setState(), que atualiza o estado
+dos dados do componente.
+Mostra a mensagem de erro no console.
+Retorna o 1º elemento
+HTML do documento,
+cujo seletor é principal.
+Insere o parágrafo <p> como o
+último filho do elemento retornado
+pelo método querySelectorAll().
+Ao usar async no método componentDidMount(), é
+preciso usar a palavra reservada await para pausar a
+execução até que a promise retornada pelo método
+get da biblioteca axios seja resolvida, ou seja, até que
+os dados requisitados para a API sejam recebidos.
+
+-- 7 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o
+Componente App
+Agora os dados são passados para os
+componentes com uso da propriedade
+livros, cujo valor é o objeto livros que
+contém os dados vindos da API.
+Essa rota define a página de detalhes de
+cada livro. O atributo path recebe uma rota
+com um parâmetro identificador de um
+livro (livroSlug). Com isso, os detalhes do
+livro selecionado podem ser renderizados de
+acordo com o atributo slug vindo da API.
+As versões mais novas do React
+Router não admitem funções dentro
+da rota. Por isso, para implementar a
+função que busca os dados do livro
+selecionado pelo usuário, foi preciso
+criar o componente BuscaLivro.
+
+-- 8 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente BuscaLivro
+Para facilitar a implementação do componente de busca de livro,
+será importado o hook useParams, um recurso fornecido pelo
+React Router. Ele permite acessar e passar dinamicamente os
+parâmetros da URL atual para os componentes.
+Em programação, a palavra “hook” (“gancho” em português) designa um código
+que é incorporado a um programa com a finalidade de simplificar suas instruções.
+Recupera o parâmetro livroSlug definido no caminho
+da rota. Por exemplo: http://localhost:3000/livro/uma-
+breve-historia-do-mundo.
+A propriedade livros, enviada pelo componente
+App, é recebida como props.
+Busca o livro que tem o atributo
+slug igual ao parâmetro livroSlug.
+Se livro não for nulo, chama o componente Livro, passando
+o livro encontrado, senão chama o componente NotFound.
+
+-- 9 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Livro
+A propriedade livro, enviada pelo componente
+BuscaLivro, é recebida como props.
+Gera o conteúdo dinâmico
+para a página do livro.
+
+-- 10 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente Home
+A propriedade livros, enviada pelo componente
+App, é recebida como props.
+O método filter() recupera os seis primeiros livros
+retornados pela API, os quais serão exibidos na Home Page.
+O método map() itera cada um
+dos seis objetos livro retornados
+pelo método filter() e gera suas
+respectivas marcações HTML.
+O container Link da biblioteca
+React Router transforma o título
+e a descrição do livro em um link
+para a página do respectivo livro,
+conforme definido no atributo to.
+O método slice() corta a descrição
+do livro para que fique com 150
+caracteres, deixando a descrição
+completa para a página do livro.
+
+-- 11 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente Catalogo
+A propriedade livros, enviada pelo componente
+App, é recebida como props.
+Esse componente cria três listas, uma para cada
+categoria de livro. Cada lista exibe os títulos de
+seus respectivos livros, sendo que cada título é
+um link para a página de detalhes do livro.
+O método filter() recupera
+todos os livros de uma
+determinada categoria.
+O método map() itera cada um
+dos objetos livro retornados
+pelo método filter() e gera os
+links para cada livro.
+O container Link transforma o título do livro
+em um link para a página do respectivo livro,
+conforme definido no atributo to.
+
+-- 12 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente Historia
+O método filter() recupera todos livros da categoria
+História, os quais serão exibidos na página.
+O método map() itera cada um
+dos objetos livro retornados pelo
+método filter() e gera suas
+respectivas marcações HTML.
+O container Link da biblioteca
+React Router transforma o título
+e a descrição do livro em um link
+para a página do respectivo livro,
+conforme definido no atributo to.
+
+-- 13 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente Ciencia
+O método filter() recupera todos livros da categoria
+Ciência, os quais serão exibidos na página.
+O container Link da biblioteca
+React Router transforma o título
+e a descrição do livro em um link
+para a página do respectivo livro,
+conforme definido no atributo to.
+O método map() itera cada um
+dos objetos livro retornados pelo
+método filter() e gera suas
+respectivas marcações HTML.
+
+-- 14 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente Literatura
+O método filter() recupera todos livros da categoria
+Literatura, os quais serão exibidos na página.
+O container Link da biblioteca
+React Router transforma o título
+e a descrição do livro em um link
+para a página do respectivo livro,
+conforme definido no atributo to.
+O método map() itera cada um
+dos objetos livro retornados pelo
+método filter() e gera suas
+respectivas marcações HTML.
+
+-- 15 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final O resultado final é um website baseado
+em componentes React, com todo o
+conteúdo sendo gerado dinamicamente.
+Home Page
+
+-- 16 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final As páginas específicas dos livros podem ser acessadas
+a partir da Home Page, das páginas de categorias
+dos livros e da página de catálogo de livros.
+Página de um livro específico
+
+-- 17 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final
+Página da categoria Literatura
+
+-- 18 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final
+Página de catálogo de livros
+
+-- 19 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• SILVA, Maurício S. React: Aprenda Praticando. São Paulo: Editora
+Novatec, 2021.
+• TORRES, Fernando E. Single Page Application. São Paulo: Editora Senac,
+2023.
+Referências
+
+-- 20 of 20 --
+
+
+
+===== aulas/12-Single Page Applications com React.pdf =====
+
+l.bertholdo@ifsp.edu.br
+Desenvolvimento Web 2
+Aula 12
+Single Page Applications com React
+
+-- 1 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Manutenção de Dados
+• Ajustando Arquivos e Componentes
+• Criando os Componentes MenuTabela, TabelaLivros, Tabela,
+Cadastro e BuscaLivroAlteracao
+• Alterando o Componente App
+• Resultado Final
+Conteúdo
+
+-- 2 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• Os conteúdos do website apresentado na última aula passaram a ser
+inseridos dinamicamente a partir de requisições a uma API de dados.
+• Porém, o website não oferece operações para inserir, atualizar e excluir
+livros. Para implementar tais operações, será criada uma tabela de livros
+e dois formulários conforme protótipos abaixo:
+Manutenção de Dados
+
+-- 3 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Ajustando Arquivos e Componentes
+No arquivo todosLivros.json, altere o nome da propriedade id
+para isbn, e inclua novamente a propriedade id, incrementando-a
+com +1 a cada objeto. Essa propriedade será necessária para que,
+após as operações, os livros da tabela sejam ordenados na mesma
+sequência em que se encontram no arquivo, e não pelo isbn.
+todosLivros.json
+Home.js
+No componente Home, altere a
+referência aos nomes dos arquivos de
+imagem, de livro.id para livro.ibsn.
+Faça o mesmo para os componentes
+Historia, Ciencia, Literatura e Livro.
+No componente Livro, altere a propriedade
+referente ao campo ISBN de id para isbn.
+Livro.js
+
+-- 4 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Ajustando Arquivos e Componentes
+Navegacao.js
+No componente Navegacao, inclua
+o item Cadastro, o qual direcionará
+o usuário para a tabela de livros.
+Substitua o arquivo index.css
+pelo arquivo de mesmo
+nome disponibilizado. Nesse
+arquivo, foram incluídos os
+estilos para a tabela de
+livros e os formulários.
+
+-- 5 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente MenuTabela
+Esse componente define uma área acima da
+tabela, que permite acessar a própria tabela
+(botão Lista de Livros) e também o formulário
+para cadastrar um novo livro (botão Cadastrar).
+Chama os componentes Tabela
+e Cadastro a serem criados.
+
+-- 6 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente TabelaLivros
+Esse componente define um cabeçalho (“Lista de Livros”)
+e a tabela contendo a lista de livros cadastrados.
+Forma condicional de renderização
+comumente usada em React. Se o array
+livros estiver vazio, mostra a mensagem.
+Se o array livros tiver pelo menos um livro,
+renderiza a tabela contendo os livros.
+Recebe o array livros e a função para exclusão de
+livro que será implementada no componente App.
+
+-- 7 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente TabelaLivros
+Para cada livro existente no array, cria uma
+linha na tabela contendo os dados de ISBN,
+título e autor, além dos botões Alterar e Excluir.
+Continuação
+Chama o componente BuscaLivro
+Alteracao, a ser criado, passando como
+parâmetro o ISBN do livro a ser alterado.
+Para exclusão de livro, não será necessário
+chamar um componente, pois será exibida
+apenas uma mensagem de confirmação
+antes da exclusão.
+
+-- 8 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Tabela
+Esse componente agrupa os
+componentes MenuTabela
+e TabelaLivros.
+Passa o array livros e a função para exclusão de
+livro que será implementada no componente App.
+
+-- 9 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Cadastro
+O componente Navigate será usado para redirecionar o usuário para a página
+da tabela de livros, sempre que um livro for cadastrado ou alterado.
+O objeto livro, enviado pelo componente App (para
+ser cadastrado) ou enviado pelo componente
+BuscaLivroAlteracao (para ser alterado), é recebido
+como props e armazenado no objeto state.
+Flag de controle para indicar se o usuário deve ser
+redirecionado para a página da tabela de livros.
+Função executada quando o formulário é enviado.
+Umas das funções (inserirLivro ou
+alterarLivro) é disparada quando o
+formulário for enviado. Assim que a
+função é disparada, o status da flag
+redirecionar é modificada para true.
+
+-- 10 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente Cadastro
+Continuação Se a flag redirecionar foi modificada para true, o usuário
+é redirecionado para a página da tabela de livros.
+Define o título do formulário
+conforme a função chamada.
+default value define o valor
+digitado pelo usuário ao
+inserir um novo livro.
+value define o valor mantido
+ou alterado pelo usuário ao
+alterar um livro.
+Efetiva a alteração no objeto livro do
+assim que houver mudança no campo.
+O operador spread (...) destina-se a manipular arrays, objetos e strings. Exemplo:
+const frutas1 = [“banana", “mamão", “pera"];
+const frutas2 = [“manga", “uva"];
+let frutas = [...frutas1, ...frutas2]; // [ “banana", “mamão", “pera", “manga", “uva" ]
+No código acima, o objeto livro é atualizado com os valores inseridos, alterados ou
+mantidos pelo usuário.
+Define o texto do botão conforme
+a função chamada.
+
+-- 11 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Criando o Componente BuscaLivroAlteracao
+Para acessar e passar os parâmetros da URL atual para os componentes,
+será importado o hook useParams da biblioteca React Router.
+Recupera o parâmetro isbnLivro definido no
+caminho da rota. Por exemplo:
+http://localhost:3000/alterar/9788539507672.
+A propriedade livros e a função alterarLivro, enviadas
+pelo componente App, são recebidas como props.
+Busca o livro que tem o atributo
+isbn igual ao parâmetro isbnLivro.
+Se livro não for nulo, chama o componente Cadastro, passando
+o livro encontrado, senão chama o componente NotFound.
+
+-- 12 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente App
+Importação dos componentes
+necessários para implementar
+a tabela de livros e suas
+funcionalidades.
+
+-- 13 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente App
+O id do livro é gerado em função do número de livros
+cadastrados. O objeto livros é atualizado no state
+acrescentando o novo livro aos livros existentes.
+Continuação
+Coloca o livro alterado de volta em state, posiciona
+o livro na ordem em que ele se encontrava no array
+livros e atualiza o objeto state.
+Busca no array livros o índice
+do livro a ser alterado.
+Os métodos slice() e
+concat() excluem de state
+o livro a ser alterado.
+Cria um novo objeto contendo todos os livros,
+exceto aquele cujo isbn é igual ao do livro a
+ser excluído, e atualiza o objeto state.
+
+-- 14 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Alterando o Componente App
+Continuação
+A função inserirLivro é passada como props
+ao componente Cadastro, juntamente com
+o objeto livro. Inicialmente, este objeto
+livro é enviado vazio, sendo posteriormente
+atualizado com os dados preenchidos no
+formulário.
+A função alterarLivro é passada
+como props ao componente
+BuscaLivroAlteracao,
+juntamente com o array livros.
+A função excluirLivro é passada
+como props ao componente Tabela,
+juntamente com o array livros.
+
+-- 15 of 20 --
+
+l.bertholdo@ifsp.edu.br
+O resultado final é uma tabela que
+oferece funcionalidades para listagem,
+inserção, alteração e exclusão de livros.
+Lista de Livros
+Resultado Final
+
+-- 16 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Cadastro de Livro
+Resultado Final
+Ao cadastrar um livro, o usuário é redirecionado para a
+página da tabela de livros, na qual constará o novo livro.
+
+-- 17 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final
+Alteração de Livro
+Ao modificar um livro, o usuário é redirecionado para a
+página da tabela de livros, na qual constará o livro alterado.
+
+-- 18 of 20 --
+
+l.bertholdo@ifsp.edu.br
+Resultado Final
+Exclusão de Livro
+
+-- 19 of 20 --
+
+l.bertholdo@ifsp.edu.br
+• SILVA, Maurício S. React: Aprenda Praticando. São Paulo: Editora
+Novatec, 2021.
+• TORRES, Fernando E. Single Page Application. São Paulo: Editora Senac,
+2023.
+Referências
+
+-- 20 of 20 --
+

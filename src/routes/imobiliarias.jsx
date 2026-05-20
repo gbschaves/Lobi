@@ -1,11 +1,5 @@
-﻿import { createFileRoute } from "@tanstack/react-router";
-import { CrudTable } from "@/components/CrudTable";
+﻿import { CrudTable } from "@/components/CrudTable";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import dbSeed from "@/data/db.json";
-
-export const Route = createFileRoute("/imobiliarias")({
-  component: ImobiliariasPage,
-});
 
 const COLUMNS = [
   { key: "nome", label: "Nome" },
@@ -19,7 +13,7 @@ const FIELDS = [
   { key: "nome", label: "Nome", required: true },
   { key: "cnpj", label: "CNPJ", required: true },
   { key: "cep", label: "CEP", type: "cep", fills: { endereco: "__full__" } },
-  { key: "endereco", label: "Endereço", required: true },
+  { key: "endereco", label: "Endereco", required: true },
   { key: "telefone", label: "Telefone", required: true },
   { key: "email", label: "E-mail", type: "email", required: true },
   { key: "website", label: "Website" },
@@ -27,11 +21,12 @@ const FIELDS = [
 
 const EMPTY = { nome: "", cnpj: "", cep: "", endereco: "", telefone: "", email: "", website: "" };
 
-function ImobiliariasPage() {
-  const { items, create, update, remove } = useLocalStorage("lobi:imobiliarias", dbSeed.imobiliarias);
+export default function ImobiliariasPage() {
+  const { items, create, update, remove } = useLocalStorage("lobi:imobiliarias");
   return (
     <CrudTable
       title="Imobiliarias"
+      backTo="/"
       columns={COLUMNS}
       items={items}
       fields={FIELDS}

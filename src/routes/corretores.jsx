@@ -1,11 +1,5 @@
-﻿import { createFileRoute } from "@tanstack/react-router";
-import { CrudTable } from "@/components/CrudTable";
+﻿import { CrudTable } from "@/components/CrudTable";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import dbSeed from "@/data/db.json";
-
-export const Route = createFileRoute("/corretores")({
-  component: CorretoresPage,
-});
 
 const COLUMNS = [
   { key: "nome", label: "Nome" },
@@ -25,11 +19,12 @@ const FIELDS = [
 
 const EMPTY = { nome: "", creci: "", telefone: "", email: "", imobiliaria_nome: "" };
 
-function CorretoresPage() {
-  const { items, create, update, remove } = useLocalStorage("lobi:corretores", dbSeed.corretores);
+export default function CorretoresPage() {
+  const { items, create, update, remove } = useLocalStorage("lobi:corretores");
   return (
     <CrudTable
       title="Corretores"
+      backTo="/"
       columns={COLUMNS}
       items={items}
       fields={FIELDS}

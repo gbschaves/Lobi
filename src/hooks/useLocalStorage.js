@@ -1,43 +1,67 @@
-import { useState } from "react";
+﻿import { useState, useEffect } from "react";
 
 /**
- * Hook CRUD que persiste dados no localStorage.
- * @param {string} key - chave única no localStorage
- * @param {Array} initialData - dados iniciais (seed)
+ * Hook CRUD com persistencia em localStorage.
+ * Na primeira vez que a chave nao existe, carrega os dados
+ * via fetch("/api/db.json") — igual ao padrao ensinado em aula.
+ *
+ * @param {string} key    - chave no localStorage (ex: "lobi:imoveis")
  */
-export function useLocalStorage(key, initialData = []) {
-  const [items, setItems] = useState(() => {
-    try {
-      const stored = localStorage.getItem(key);
-      return stored ? JSON.parse(stored) : initialData;
-    } catch {
-      return initialData;
-    }
-  });
+export function useLocalStorage(key) {
+  const [items, setItems] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
-  function save(next) {
-    setItems(next);
-    try {
-      localStorage.setItem(key, JSON.stringify(next));
-    } catch (e) {
-      console.error("localStorage error", e);
+  // Carregamento inicial: localStorage ou fetch ao arquivo JSON
+  useEffect(() => {
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      try {
+        setItems(JSON.parse(stored));
+        setLoaded(true);
+        return;
+      } catch {
+        // dado corrompido — cai no fetch abaixo
+      }
     }
+
+    // Primeira visita: busca dados do repositorio JSON
+    const entityKey = key.split(":")[1]; // "lobi:imoveis" -> "imoveis"
+    fetch("/api/db.json")
+      .then((res) => res.json())
+      .then((db) => {
+        const seed = db[entityKey] ?? [];
+        localStorage.setItem(key, JSON.stringify(seed));
+        setItems(seed);
+      })
+      .catch((err) => {
+        console.error("Erro ao carregar db.json:", err);
+        setItems([]);
+      })
+      .finally(() => setLoaded(true));
+  }, [key]);
+
+  // Persiste no localStorage sempre que items muda (apos carregamento)
+  useEffect(() => {
+    if (loaded) {
+      localStorage.setItem(key, JSON.stringify(items));
+    }
+  }, [items, loaded, key]);
+
+  function nextId() {
+    if (items.length === 0) return 1;
+    return Math.max(...items.map((i) => i.id ?? 0)) + 1;
   }
 
-  function create(item) {
-    const nextId = items.length > 0 ? Math.max(...items.map((i) => i.id)) + 1 : 1;
-    const next = [...items, { ...item, id: nextId }];
-    save(next);
-    return nextId;
+  function create(data) {
+    setItems((prev) => [...prev, { ...data, id: nextId() }]);
   }
 
   function update(id, data) {
-    const next = items.map((i) => (i.id === id ? { ...i, ...data } : i));
-    save(next);
+    setItems((prev) => prev.map((item) => (item.id === id ? { ...item, ...data } : item)));
   }
 
   function remove(id) {
-    save(items.filter((i) => i.id !== id));
+    setItems((prev) => prev.filter((item) => item.id !== id));
   }
 
   return { items, create, update, remove };

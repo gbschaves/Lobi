@@ -1,0 +1,149 @@
+{
+  "imobiliarias": [
+    {
+      "id": 1,
+      "nome": "LoBi Prime",
+      "cnpj": "12.345.678/0001-99",
+      "cep": "01310-100",
+      "endereco": "Av. Paulista, 1200 - Bela Vista, Sao Paulo - SP",
+      "telefone": "(11) 3001-4000",
+      "email": "contato@lobiprime.com.br",
+      "website": "www.lobiprime.com.br"
+    },
+    {
+      "id": 2,
+      "nome": "Residencia e Cia",
+      "cnpj": "98.765.432/0001-11",
+      "cep": "20040-020",
+      "endereco": "Rua das Flores, 300 - Centro, Rio de Janeiro - RJ",
+      "telefone": "(21) 2200-9900",
+      "email": "info@residenciacia.com.br",
+      "website": "www.residenciacia.com.br"
+    },
+    {
+      "id": 3,
+      "nome": "Urban Imoveis",
+      "cnpj": "55.444.333/0001-22",
+      "cep": "80020-130",
+      "endereco": "R. XV de Novembro, 800 - Centro, Curitiba - PR",
+      "telefone": "(41) 3300-2200",
+      "email": "urban@urbanimoveis.com.br",
+      "website": "www.urbanimoveis.com.br"
+    }
+  ],
+  "corretores": [
+    {
+      "id": 1,
+      "nome": "Carlos Andrade",
+      "creci": "CRECI-SP 123456",
+      "telefone": "(11) 99800-1234",
+      "email": "carlos@lobiprime.com.br",
+      "imobiliaria_id": 1,
+      "imobiliaria_nome": "LoBi Prime"
+    },
+    {
+      "id": 2,
+      "nome": "Fernanda Rocha",
+      "creci": "CRECI-RJ 654321",
+      "telefone": "(21) 98700-5678",
+      "email": "fernanda@residenciacia.com.br",
+      "imobiliaria_id": 2,
+      "imobiliaria_nome": "Residencia e Cia"
+    },
+    {
+      "id": 3,
+      "nome": "Paulo Mendes",
+      "creci": "CRECI-PR 789012",
+      "telefone": "(41) 97600-9012",
+      "email": "paulo@urbanimoveis.com.br",
+      "imobiliaria_id": 3,
+      "imobiliaria_nome": "Urban Imoveis"
+    }
+  ],
+  "imoveis": [
+    {
+      "id": 1,
+      "titulo": "Casa Ipe Modernista",
+      "tipo": "Casa",
+      "cep": "01422-001",
+      "endereco": "R. das Acacias, 45 - Jardins, Sao Paulo - SP",
+      "preco": "R$ 4.250.000",
+      "quartos": 4,
+      "banheiros": 3,
+      "area": "320 m2",
+      "status": "Disponivel",
+      "imobiliaria_id": 1,
+      "imobiliaria_nome": "LoBi Prime",
+      "foto": "/imagens/imoveis/imovel-1.jpg"
+    },
+    {
+      "id": 2,
+      "titulo": "Penthouse Aurora",
+      "tipo": "Cobertura",
+      "cep": "04538-132",
+      "endereco": "Av. Brigadeiro Faria Lima, 2000 - Itaim Bibi, Sao Paulo - SP",
+      "preco": "R$ 12.900/mes",
+      "quartos": 3,
+      "banheiros": 2,
+      "area": "210 m2",
+      "status": "Alugado",
+      "imobiliaria_id": 1,
+      "imobiliaria_nome": "LoBi Prime",
+      "foto": "/imagens/imoveis/imovel-2.jpg"
+    },
+    {
+      "id": 3,
+      "titulo": "Villa Costa Azul",
+      "tipo": "Casa",
+      "cep": "28950-000",
+      "endereco": "Rua das Ostras, 12 - Buzios, Rio de Janeiro - RJ",
+      "preco": "R$ 18.500.000",
+      "quartos": 6,
+      "banheiros": 6,
+      "area": "920 m2",
+      "status": "Disponivel",
+      "imobiliaria_id": 2,
+      "imobiliaria_nome": "Residencia e Cia",
+      "foto": "/imagens/imoveis/imovel-3.jpg"
+    },
+    {
+      "id": 4,
+      "titulo": "Ape Moderno Curitiba",
+      "tipo": "Apartamento",
+      "cep": "80420-210",
+      "endereco": "R. Comendador Araujo, 340 - Batel, Curitiba - PR",
+      "preco": "R$ 2.100/mes",
+      "quartos": 2,
+      "banheiros": 1,
+      "area": "75 m2",
+      "status": "Disponivel",
+      "imobiliaria_id": 3,
+      "imobiliaria_nome": "Urban Imoveis",
+      "foto": "/imagens/imoveis/imovel-4.jpg"
+    }
+  ],
+  "propostas": [
+    {
+      "id": 1,
+      "imovel_id": 2,
+      "imovel_titulo": "Penthouse Aurora",
+      "locatario_nome": "Ana Beatriz Lima",
+      "locatario_email": "ana@email.com",
+      "locatario_telefone": "(11) 96000-0001",
+      "valor_proposta": "R$ 12.500/mes",
+      "data": "2025-01-15",
+      "status": "Aprovada"
+    },
+    {
+      "id": 2,
+      "imovel_id": 4,
+      "imovel_titulo": "Ape Moderno Curitiba",
+      "locatario_nome": "Roberto Souza",
+      "locatario_email": "roberto@email.com",
+      "locatario_telefone": "(41) 95000-0002",
+      "valor_proposta": "R$ 2.050/mes",
+      "data": "2025-01-20",
+      "status": "Pendente"
+    }
+  ]
+}

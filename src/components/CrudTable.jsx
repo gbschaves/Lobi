@@ -1,5 +1,5 @@
 ﻿import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Pencil, Trash2, Plus, X, ChevronLeft, Loader2, MapPin } from "lucide-react";
 
 // Busca ViaCEP e retorna os dados ou null
